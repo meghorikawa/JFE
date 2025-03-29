@@ -29,7 +29,8 @@ def preprocess(text):
             token_data = {
                 "id":token.i +1,
                 "orth":token.text, # the actual written token
-                "reading": reading, # pronunciation
+                "reading": reading, # pronunciation this however only returns most common and not necessarily based
+                # on context.....
                 "lemma":token.lemma_, # lemma (dictionary form)
                 "pos": token.pos_,
                 "tag":token.tag_, # detailed pos tag

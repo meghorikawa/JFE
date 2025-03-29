@@ -1,0 +1,139 @@
+[
+    {
+        "paragraphs": [
+            {
+                "raw_text": "あまり肉をたべません。あまり肉を食べない",
+                "sentences": [
+                    {
+                        "tokens": [
+                            {
+                                "id": 1,
+                                "orth": "あまり",
+                                "reading": "アマリ",
+                                "lemma": "あまり",
+                                "pos": "ADV",
+                                "tag": "副詞",
+                                "dep": "advmod",
+                                "head": 4
+                            },
+                            {
+                                "id": 2,
+                                "orth": "肉",
+                                "reading": "ニク",
+                                "lemma": "肉",
+                                "pos": "NOUN",
+                                "tag": "名詞-普通名詞-一般",
+                                "dep": "obj",
+                                "head": 4
+                            },
+                            {
+                                "id": 3,
+                                "orth": "を",
+                                "reading": "ヲ",
+                                "lemma": "を",
+                                "pos": "ADP",
+                                "tag": "助詞-格助詞",
+                                "dep": "case",
+                                "head": 2
+                            },
+                            {
+                                "id": 4,
+                                "orth": "たべ",
+                                "reading": "タベ",
+                                "lemma": "たべる",
+                                "pos": "VERB",
+                                "tag": "動詞-一般",
+                                "dep": "ROOT",
+                                "head": 0
+                            },
+                            {
+                                "id": 5,
+                                "orth": "ませ",
+                                "reading": "マセ",
+                                "lemma": "ます",
+                                "pos": "AUX",
+                                "tag": "助動詞",
+                                "dep": "aux",
+                                "head": 4
+                            },
+                            {
+                                "id": 6,
+                                "orth": "ん",
+                                "reading": "ン",
+                                "lemma": "ぬ",
+                                "pos": "AUX",
+                                "tag": "助動詞",
+                                "dep": "aux",
+                                "head": 4
+                            },
+                            {
+                                "id": 7,
+                                "orth": "。",
+                                "reading": "。",
+                                "lemma": "。",
+                                "pos": "PUNCT",
+                                "tag": "補助記号-句点",
+                                "dep": "punct",
+                                "head": 4
+                            }
+                        ]
+                    },
+                    {
+                        "tokens": [
+                            {
+                                "id": 8,
+                                "orth": "あまり",
+                                "reading": "アマリ",
+                                "lemma": "あまり",
+                                "pos": "ADV",
+                                "tag": "副詞",
+                                "dep": "advmod",
+                                "head": 11
+                            },
+                            {
+                                "id": 9,
+                                "orth": "肉",
+                                "reading": "ニク",
+                                "lemma": "肉",
+                                "pos": "NOUN",
+                                "tag": "名詞-普通名詞-一般",
+                                "dep": "obj",
+                                "head": 11
+                            },
+                            {
+                                "id": 10,
+                                "orth": "を",
+                                "reading": "ヲ",
+                                "lemma": "を",
+                                "pos": "ADP",
+                                "tag": "助詞-格助詞",
+                                "dep": "case",
+                                "head": 9
+                            },
+                            {
+                                "id": 11,
+                                "orth": "食べ",
+                                "reading": "タベ",
+                                "lemma": "食べる",
+                                "pos": "VERB",
+                                "tag": "動詞-一般",
+                                "dep": "ROOT",
+                                "head": 0
+                            },
+                            {
+                                "id": 12,
+                                "orth": "ない",
+                                "reading": "ナイ",
+                                "lemma": "ない",
+                                "pos": "AUX",
+                                "tag": "助動詞",
+                                "dep": "aux",
+                                "head": 11
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

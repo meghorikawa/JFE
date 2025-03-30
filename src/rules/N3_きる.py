@@ -24,10 +24,12 @@ def match_kiru_N3(nlp, doc):
     patterns = [
         [  # Pattern for Verb (stem) + きる
             {"pos": "VERB", "tag": "動詞-一般"},
-            {"lemma": {"IN": ["切る", "きる", "切れる", "きれる"]}, "tag": "動詞-非自立可能"}
+            {"lemma": {"IN": ["切る", "きる", "切れる", "きれる"]}, "tag": "動詞-非自立可能"},
+            {"lemma": {"NOT_IN": ["ない"]}}  # Exclude negation
         ],
         [  # Pattern for exceptions of 言い切るand 売り切る。
-            {"lemma": {"IN": ["言い切れる", "売り切れる"]}, "tag": "動詞-一般"}
+            {"lemma": {"IN": ["言い切れる", "売り切れる"]}, "tag": "動詞-一般"},
+            {"lemma": {"NOT_IN": ["ない"]}}  # Exclude negation
         ]
     ]
 

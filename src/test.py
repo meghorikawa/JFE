@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = ("どうしてそう言い切れるのですか。今日はもう魚を全部売り切れた。")
+text = ("私の気持ちを言い切れなかった。この部屋に100人は入り切れない。いっぱい注文しないで、二人で食べ切れないから。このお酒は強すぎて、飲み切れなかった。")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

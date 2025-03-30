@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = "いくら好きでも、できない。いくら彼がすきでも、できない。"
+text = "この国の人口は減少する一方だと報告されています。感染症の拡大を防ぐためには、対策を強化する一方だろう。"
 processed_text = pipline.preprocess(text)
 
 #Save JSON

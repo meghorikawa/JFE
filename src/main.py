@@ -1,4 +1,4 @@
-# main method I need to create seperate line items for each participant and each writing.
+# main method I need to create separate line items for each participant and each writing.
 
 # participant_writing num　
 
@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("いくら勉強しても、テストの点が上がらない。いくら頼んでも、彼は手伝ってくれない。いくら仕事が大変でも、夢を諦めたくない。いくらかれが好きでも、できない")
+text = ("環境破壊は年々進む一方だ。インターネットの普及により、オンラインサービスの需要が高まる一方です。この国の人口は減少する一方だと報告されています。都市部の住宅価格は上がる一方で、若者が家を買うのが難しくなっている。感染症の拡大を防ぐためには、対策を強化する一方だろう。")
 results = apply_matching(text)
 
 for category, matches in results.items():

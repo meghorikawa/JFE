@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = "あまりにうるさかったので耳を塞いだわ。"
+text = "いくら好きでも、できない。いくら彼がすきでも、できない。"
 processed_text = pipline.preprocess(text)
 
 #Save JSON

@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = "あまりにうるさかったので耳を塞いだわ。"
+text = ("いくら勉強しても、テストの点が上がらない。いくら頼んでも、彼は手伝ってくれない。いくら仕事が大変でも、夢を諦めたくない。いくらかれが好きでも、できない")
 results = apply_matching(text)
 
 for category, matches in results.items():

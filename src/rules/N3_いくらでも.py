@@ -12,7 +12,7 @@ examples:
 いくら納豆を食べても、好きにならない。
 いくら好きでも、そんなことはできない。
 '''
-def match_amari_N3(nlp, doc):
+def match_ikurademo_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
 

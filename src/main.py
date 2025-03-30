@@ -17,12 +17,14 @@ def apply_matching(text):
             if attr.startswith("match_"):
                 match_func = getattr(module, attr)
                 if callable(match_func):
+                    print(f"Applying {attr} from {module_name}...")
                     all_matches[attr] = match_func(nlp, doc)
+                    #print(f"Result of {attr}: {result}")
 
     return all_matches
 
 # Example usage
-text = ("環境破壊は年々進む一方だ。インターネットの普及により、オンラインサービスの需要が高まる一方です。この国の人口は減少する一方だと報告されています。都市部の住宅価格は上がる一方で、若者が家を買うのが難しくなっている。感染症の拡大を防ぐためには、対策を強化する一方だろう。")
+text = ("私は納豆をあまり食べません。")
 results = apply_matching(text)
 
 for category, matches in results.items():

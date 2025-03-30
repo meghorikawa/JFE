@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = "この国の人口は減少する一方だと報告されています。感染症の拡大を防ぐためには、対策を強化する一方だろう。"
+text = ("とてもいい医者にみてもらったおかげで病気が治りました。見ていたおかげで、助けてあげた。")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

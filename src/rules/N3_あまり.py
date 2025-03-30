@@ -12,7 +12,7 @@ def match_amari_N3(nlp, doc):
 
     patterns =[[
         #Rule pattern あまり　＋V　＋neg
-        {"orth": "いくら", "pos": "ADV"},
+        {"orth": "あまり"},
         {"pos":"VERB"},
         {"orth": "ない"}
     ],

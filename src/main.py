@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("私の気持ちを言い切れなかった。この部屋に100人は入り切れない。いっぱい注文しないで、二人で食べ切れないから。このお酒は強すぎて、飲み切れなかった。")
+text = ("彼はまだ寝ているに違いない。きっと日本の漢字もすぐに覚えられるに違いない。それは痛いに違いない。")
 results = apply_matching(text)
 
 for category, matches in results.items():

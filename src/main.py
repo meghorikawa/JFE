@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("綺麗なお陰で、掃除が楽でした。狭いおかげで、あまり人呼べない。今日、皆さんのおかげで私の夢を実現しました。")
+text = ("彼は人の名前を忘れ気味である。昨夜、彼は風邪気味だった。風邪気味で、熱っぽいんだ。")
 results = apply_matching(text)
 
 for category, matches in results.items():

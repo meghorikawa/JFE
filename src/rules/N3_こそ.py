@@ -17,7 +17,7 @@ def match_koso_N3(nlp, doc):
     ]
 
 
-    matcher.add("こぞ", patterns)
+    matcher.add("こぞ", [patterns])
     matches = matcher(doc)
 
     #from here I should figure out how I want to normalize the counts...

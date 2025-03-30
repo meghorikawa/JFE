@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = "この映画はあまり面白くない。私はあまり食べない。今日こそ早く寝るつもりだ。あなたこそ私の大切な友達です。努力こそ成功への鍵だ。今こそ行動を起こすべきだ。この本こそ探していたものだ。健康こそ何よりも大切だ。愛こそ人生の意味だと思う。あなたの努力こそ認められるべきだ。今度こそ試験に合格してみせる！親の気持ちこそ子供にはなかなか分からないものだ。"
+text = "あまりにうるさかったので耳を塞いだわ。"
 results = apply_matching(text)
 
 for category, matches in results.items():

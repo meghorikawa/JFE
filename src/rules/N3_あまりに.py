@@ -3,20 +3,22 @@ from spacy.matcher import Matcher
 from collections import Counter
 
 '''
-Grammar Form Matched: V+ がたい
+Grammar Form Matched: あまりに
 JLPT Level: N3
 '''
-
-
-def match_gatai_N3(nlp, doc):
+def match_amarini_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
-    patterns = [
-        {"pos": "VERB"},
-        {"orth": "がたい", "pos": "ADP"}
+
+    patterns =[[
+        #Rule pattern あまりに + Adj
+        {"orth": "あまり", "pos": "ADJ"},
+        {"orth": "に", "pos":"AUX"},
+        {"pos": "ADJ"}
+    ]
     ]
 
-    matcher.add("がたい", [patterns])
+    matcher.add("あまりに", patterns)
     matches = matcher(doc)
 
     #from here I should figure out how I want to normalize the counts...

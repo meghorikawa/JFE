@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = ("彼は人の名前を忘れ気味である。昨夜、彼は風邪気味だった。風邪気味で、熱っぽいんだ。")
+text = ("どうしてそう言い切れるのですか。今日はもう魚を全部売り切れた。")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

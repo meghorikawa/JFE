@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("彼は人の名前を忘れ気味である。昨夜、彼は風邪気味だった。風邪気味で、熱っぽいんだ。")
+text = ("どうしてそう言い切れるのですか。長い小説を2日間で読み切った。今日はもう魚を全部売り切れた。それを食べ切れる？食べ切ります。")
 results = apply_matching(text)
 
 for category, matches in results.items():

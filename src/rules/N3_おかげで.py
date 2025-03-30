@@ -21,20 +21,20 @@ def match_okagede_N3(nlp, doc):
         [  # Pattern for Verb (casual form) + おかげで
             {"pos": "VERB"},
             {"pos": "AUX", "OP": "?"},  # Optional auxiliary (negative/past)
-            {"orth": "おかげ", "pos": "NOUN"},
+            {"orth": {"IN": ["おかげ", "お陰"]}, "pos": "NOUN"},
             {"orth": "で", "pos": "ADP"}
         ],
         [  # Pattern for Noun + の + おかげで
             {"pos": "NOUN"},
             {"orth": "の", "pos": "ADP"},  # の (particle)
-            {"orth": "おかげ", "pos": "NOUN"},
+            {"orth": {"IN": ["おかげ", "お陰"]}, "pos": "NOUN"},
             {"orth": "で", "pos": "ADP"}
         ],
         [  # Pattern for i-adjective + おかげで OR na-adjective + な + おかげで
             {"pos": "ADJ"},
             {"orth": "な", "pos": "AUX", "OP": "?"},  # Optional な for な-adjectives
-            {"orth": "おかげ", "pos": "NOUN"},
-            {"orth": "で", "pos": "ADP"}
+            {"orth": {"IN": ["おかげ", "お陰"]}, "pos": "NOUN"},
+            {"orth": "で"}
         ]
     ]
 

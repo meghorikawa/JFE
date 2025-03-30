@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = ("とてもいい医者にみてもらったおかげで病気が治りました。見ていたおかげで、助けてあげた。")
+text = ("綺麗なお陰で、掃除が楽でした。狭いおかげで、あまり人呼べない。今日、皆さんのおかげで私の夢を実現しました。")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

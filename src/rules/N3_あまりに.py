@@ -10,15 +10,15 @@ def match_amarini_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
 
-    patterns =[[
+    patterns =[
         #Rule pattern あまりに + Adj
         {"orth": "あまり", "pos": "ADJ"},
         {"orth": "に", "pos":"AUX"},
         {"pos": "ADJ"}
-    ]
+
     ]
 
-    matcher.add("あまりに", patterns)
+    matcher.add("あまりに", [patterns])
     matches = matcher(doc)
 
     #from here I should figure out how I want to normalize the counts...

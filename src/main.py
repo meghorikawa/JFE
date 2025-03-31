@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("そうすればよかった。買い物のついでに、本屋に寄りました。コンビニに行くなら、ついでにお茶も買ってきてくれない？")
+text = ("彼は獣医、つまり、動物の医者です。彼女は姉の娘だ。つまり、私にとっては姪です。つまり、あなたは何も知らないのですね。")
 results = apply_matching(text)
 
 for category, matches in results.items():

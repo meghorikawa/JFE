@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("そうすればよかった。傘を持ってくればよかった。遅刻してしまった。もっと早く家を出ればよかった。")
+text = ("そうすればよかった。買い物のついでに、本屋に寄りました。コンビニに行くなら、ついでにお茶も買ってきてくれない？")
 results = apply_matching(text)
 
 for category, matches in results.items():

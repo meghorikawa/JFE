@@ -5,10 +5,10 @@ from collections import Counter
 '''
 Level: N3
 
-Verb (dictionary form)	くせに
-Noun + の
-な-adjective + な
-い-adjective
+Verb (dictionary form) + くせに
+Noun + の + くせに
+な-adjective + な + くせに
+い-adjective + くせに
 
 背が高いくせに早く走れない。
 元気なくせに、病気のふりをしている。

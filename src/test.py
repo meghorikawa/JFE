@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = ("彼はまだ寝ているに違いない。きっと日本の漢字もすぐに覚えられるに違いない。それは痛いに違いない。")
+text = ("背が高いくせに早く走れない。元気なくせに、病気のふりをしている。医者でもないくせに。彼女はお金持ちのくせにケチだ")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("もっと具体的なアイディアを出してください。")
+text = ("そうすればよかった。傘を持ってくればよかった。遅刻してしまった。もっと早く家を出ればよかった。")
 results = apply_matching(text)
 
 for category, matches in results.items():

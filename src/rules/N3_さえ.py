@@ -18,7 +18,7 @@ def match_sae_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # Pattern to allow for infinite span between 決してand negative
+        [
             {"pos": "NOUN"},
             {"pos":"ADP", "orth":"で", "OP": "?"},
             {"orth": "さえ", "pos": "ADP"}

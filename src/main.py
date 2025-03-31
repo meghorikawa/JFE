@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("そんなこと、子供でさえ知っている。忙しすぎて、ご飯を食べる時間さえない。のどが痛くて、水さえ飲めない。")
+text = ("やるしかない。歩くしかなかった。毎日勉強するしかないですよ。もう両親に頼むしかありません。")
 results = apply_matching(text)
 
 for category, matches in results.items():

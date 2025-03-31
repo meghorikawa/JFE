@@ -24,6 +24,8 @@ def match_bayokatta_N3(nlp, doc):
             {"pos": "SCONJ", "orth": "ば"},
             {"lemma": "よい", "pos": "ADJ"},
             {"orth": "た", "pos": "AUX"},
+            {"orth": "の", "pos": "SCONJ", "OP": "?"},
+            {"orth": "に", "pos": "ADP", "OP": "?"},
         ]
     ]
 

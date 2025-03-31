@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("若かったけど、とても賢かった。今週は暇だけど、来週は忙しい。彼に電話したんだけど、話し中で通じなかった。そうだといいんだけど。今、勉強してるんだけど…")
+text = ("この曲を聞くたびに、家族を思い出す。友人は旅行のたびにお土産を買ってきてくれます。あの人を会うたびに用事を頼まれる。ミスをするたびに部長にしかられる。買い物のたびに、袋をたくさんもらう。")
 results = apply_matching(text)
 
 for category, matches in results.items():

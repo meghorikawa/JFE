@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("あなたのことは決して忘れません。私は決して夢をあきらめない。決してあなたは一人じゃありません。社長には、決して失礼な言葉を言ってはいけません。")
+text = ("そんなこと、子供でさえ知っている。忙しすぎて、ご飯を食べる時間さえない。のどが痛くて、水さえ飲めない。")
 results = apply_matching(text)
 
 for category, matches in results.items():

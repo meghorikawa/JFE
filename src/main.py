@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("背が高いくせに早く走れない。元気なくせに、病気のふりをしている。医者でもないくせに。彼女はお金持ちのくせにケチだ。")
+text = ("あなたのことは決して忘れません。私は決して夢をあきらめない。決してあなたは一人じゃありません。社長には、決して失礼な言葉を言ってはいけません。")
 results = apply_matching(text)
 
 for category, matches in results.items():

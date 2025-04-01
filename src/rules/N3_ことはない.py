@@ -19,13 +19,13 @@ def match_kotohanai_N4(nlp, doc):
         [  # Pattern for verb adjective constructions use である which will also be caught.
             {"pos":"VERB"},
             {"lemma": "する", "pos": "AUX", "OP": "?"},  # optional auxiliary to account for する
-            {"orth": {"IN" :["こと","事"]}, "pos": "NOUN", "OP": "?"},
+            {"orth": {"IN" :["こと","事"]}, "pos": "NOUN"},
             {"orth": "は", "pos": "ADP", "OP": "?"},
             {"lemma": "ない", "pos": "AUX"}, # use lemma to capture instances of polite form used also
         ],[ # pattern for oplie construction
             {"pos": "VERB"},
             {"lemma": "する", "pos": "AUX", "OP": "?"},  # optional auxiliary to account for する
-            {"orth": {"IN": ["こと", "事"]}, "pos": "NOUN", "OP": "?"},
+            {"orth": {"IN": ["こと", "事"]}, "pos": "NOUN"},
             {"orth": "は", "pos": "ADP", "OP": "?"},
             {"lemma": "ある", "pos": "VERB"},  # use lemma to capture instances of polite form used also
             {"orth": "ませ", "pos": "AUX"},

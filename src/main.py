@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("彼は獣医、つまり、動物の医者です。彼女は姉の娘だ。つまり、私にとっては姪です。つまり、あなたは何も知らないのですね。")
+text = ("私の人生は、ギターと共にある。春が近づくと共に、少しずつ暖かくなってきた。私は共に戦ってくれる人を探している。ツイッターでは情報を発信すると共に、様々な人と意見交換をしている。")
 results = apply_matching(text)
 
 for category, matches in results.items():

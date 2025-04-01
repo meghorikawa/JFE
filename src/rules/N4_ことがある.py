@@ -21,7 +21,7 @@ def match_kotogaaru_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # Pattern for verb adjective constructions use である which will also be caught.
+        [  # Pattern for verbs
             {"pos":"VERB"},
             {"lemma": "する", "pos": "AUX", "OP": "?"},  # optional auxiliary to account for する
             {"orth": {"IN" :["こと","事"]}, "pos": "NOUN", "OP": "?"},  # optional auxiliary to account for する

@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("時々仕事をやめたいと思うことがある。私の地元は6月でも寒いことがある。普段は母がご飯を作りますが、私が作ることもあります。")
+text = ("明日のテストは簡単だから、心配することはありませんよ。謝ることはないよ。")
 results = apply_matching(text)
 
 for category, matches in results.items():

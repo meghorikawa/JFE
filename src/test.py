@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = ("明日のテストは簡単だから、心配することはないよ。")
+text = ("明日のテストは簡単だから、心配することはありませんよ。")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

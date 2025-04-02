@@ -20,7 +20,7 @@ def match_toiu_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [# noun pattern
+        [# general patter
             {"pos": {"IN": ["NOUN", "PRON", "AUX"]}, "OP": "?"}, #optional as sometimes a phrase precedes do I want
             # to extract each of the forms?
             {"pos":"ADP", "orth":"と"},

@@ -25,7 +25,7 @@ def match_toiuyori_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [# noun pattern
+        [# general pattern
             {"pos":"ADP", "orth":"と"},
             {"pos": "VERB", "lemma": {"IN": ["言う", "いう"]}},
             {"pos": "ADP", "lemma": "より"}

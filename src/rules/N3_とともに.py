@@ -20,7 +20,7 @@ def match_totomoni_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # Pattern for verb
+        [  # Pattern for verb and noun
             {"pos":{"IN":["VERB","NOUN", "PRON"]}},
             {"lemma": "する", "pos": "AUX", "OP": "?"},  # optional auxiliary to account for する
             {"orth": {"IN":["と","は"]},"pos": "ADP", "OP": "?"}, # optional particle と

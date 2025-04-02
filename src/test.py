@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = ("猫みたいだという人もいる。彼が外国に行くという話がある。")
+text = ("彼はかっこいいというよりかわいい。")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

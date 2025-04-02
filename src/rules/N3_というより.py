@@ -7,29 +7,32 @@ from collections import Counter
 '''
 Level: N3
 
-Noun	と言う, という
-Phrase と言います, といいます
+Verb (casual)	というより（も/は）
+Noun
+な-adjective
+い-adjective
 
-これは何という花ですか？
-猫みたいだという人もいる。
-彼が外国に行くという話がある。
+彼はかっこいいというよりかわいい。
+彼は学者というよりは教師だ。
+私の仕事は、仕事というより趣味に近い。
+うちの子はこれができないというより、やる気がないと思う。
+今日は涼しいというより寒いくらいだった。
+今はラーメンというよりうどんが食べたい気分だ。
 '''
 
 
-def match_toiu_N3(nlp, doc):
+def match_toiuyori_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
         [# noun pattern
-            {"pos": {"IN": ["NOUN", "PRON", "AUX"]}, "OP": "?"}, #optional as sometimes a phrase precedes do I want
-            # to extract each of the forms?
             {"pos":"ADP", "orth":"と"},
             {"pos": "VERB", "lemma": {"IN": ["言う", "いう"]}},
-            {"orth":{"NOT_IN":["より"]}}
+            {"pos": "ADP", "lemma": "より"}
         ]
     ]
 
-    matcher.add("toiu", patterns)
+    matcher.add("toiuyori", patterns)
     matches = matcher(doc)
 
     # Count occurrences

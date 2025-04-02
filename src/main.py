@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("猫みたいだという人もいる。彼が外国に行くという話がある。")
+text = ("彼はかっこいいというよりかわいい。彼は学者というよりは教師だ。私の仕事は、仕事というより趣味に近い。うちの子はこれができないというより、やる気がないと思う。今日は涼しいというより寒いくらいだった。今はラーメンというよりうどんが食べたい気分だ。")
 results = apply_matching(text)
 
 for category, matches in results.items():

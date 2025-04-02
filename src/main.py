@@ -22,7 +22,7 @@ def apply_matching(text):
     return all_matches
 
 # Example usage
-text = ("安っぽい。油っぽい食事は好きじゃない。私はあなたの子供っぽいところが好きです。あの小学生は、大人っぽい。年を取ると、忘れっぽくなる。白っぽい")
+text = ("猫みたいだという人もいる。彼が外国に行くという話がある。")
 results = apply_matching(text)
 
 for category, matches in results.items():

@@ -25,7 +25,7 @@ def match_hodo_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # general pattern for くらべる and くらべ form
+        [  # general pattern
             {"pos": {"IN":["ADP", "PART"]}, "lemma": {"IN":["ほど", "程"]}}, # allow for both hiragana and kanji
 
           ]

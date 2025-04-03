@@ -25,7 +25,7 @@ def match_hodonai_N3(nlp, doc):
         [  # Pattern for verbs
             {"pos": {"IN":["NOUN", "PRON", "PROPN"]}},  #any noun or pronoun
             {"pos": {"IN": ["ADP", "PART"]}, "lemma": {"IN": ["ほど", "程"]}},  # allow for both hiragana and kanji
-            {"OP": "{,13}", "OP": "?"},  # Allow up to a span of 9 tokens between
+            {"OP": "{,13}"},  # Allow up to a span of 9 tokens between
             {"lemma": {"IN": ["ない", "ぬ"]}, "pos": {"IN": ["AUX", "ADJ"]}}  # Ends with "ない" or "ん(ません)"
         ]
     ]

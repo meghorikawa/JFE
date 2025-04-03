@@ -3,7 +3,7 @@
 import pipline
 import json
 
-text = ("なるべく気をつけてください。")
+text = ("今夜は凍えるほど寒い。死ぬほどのどがかわいている。今年ほど雨の降った年はなかった。。")
 processed_text = pipline.preprocess(text)
 
 #Save JSON

@@ -20,7 +20,7 @@ def match_ukemi_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [# 一段　-られる
+        [# しよう
             {"pos":"VERB"},
             {"pos": "AUX", "lemma": "られる"}
         ],[ # 五段　ーれる

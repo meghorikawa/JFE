@@ -17,6 +17,8 @@ Passive form in Japanese
 明日は週末ですから、飲みに行こう。
 雨が降っているよ。駅まで送ってあげようか？
 
+this is a bit difficult as the ようform is not parsed seperately.... think on this for a bit...
+
 '''
 
 

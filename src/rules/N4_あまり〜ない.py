@@ -4,7 +4,15 @@ from collections import Counter
 
 '''
 Grammar Form Matched: あまり〜ない
-JLPT Level: N3
+JLPT Level: N4
+
+この文法があまり分かりません。教えてください。
+この食べ物はあまり美味しくなかった。
+
+私はあまりテニスが上手ではない。
+
+冷たい飲み物があまり好きじゃありません。
+
 '''
 def match_amari_N3(nlp, doc):
     matcher = Matcher(nlp.vocab)

@@ -23,10 +23,10 @@ def apply_matching(text):
 
 # Example usage
 text = ('''
-見えてくる。
-雨が降ってきた。
-お腹がすいてきた。
-ここまで歩いてきました。''')
+手伝ってくれる？
+彼ならやってくれる。
+すみません、写真を取ってくれませんか？
+部長は私に寿司をおごってくれました。''')
 
 results = apply_matching(text)
 

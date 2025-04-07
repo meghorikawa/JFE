@@ -20,16 +20,26 @@ def match_shikanai_N3(nlp, doc):
     patterns = [
         [  # Pattern for plain form
             {"pos": "VERB"},
-            {"pos": "PART", "orth": "しか"},
+            {"pos": {"IN" : ["ADP","PART"]}, "orth": "しか"},
             {"lemma": "ない", "pos": "AUX"},
             {"orth": "た", "pos": "AUX", "OP": "?"}  # optional argument for た to caputure past tense casual form
         ], [  # Pattern for polite form
             {"pos": "VERB"},
-            {"pos": "PART", "orth": "しか"},
+            {"pos": {"IN" : ["ADP","PART"]}, "orth": "しか"},
             {"lemma": "ある", "pos": "VERB"},
             {"lemma": "ます", "pos": "AUX"},
             {"lemma": "ぬ", "pos": "AUX"},
-        ]
+        ], [# use with a verb inbetween しかand negative
+            {"pos": {"IN": ["ADP", "PART"]}, "orth": "しか"},
+            {"pos": "VERB", "lemma":{"NOT_IN":["いる"]}},
+            {"lemma": "ない", "pos": "AUX"},
+            {"orth": "た", "pos": "AUX", "OP": "?"}
+        ],  [# use with a verb inbetween しかand negative polite form
+            {"pos": {"IN": ["ADP", "PART"]}, "orth": "しか"},
+            {"pos": "VERB"},
+            {"lemma": "ます", "pos": "AUX"},
+            {"lemma": "ぬ", "pos": "AUX"},
+        ],
     ]
 
     matcher.add("shikanai", patterns)

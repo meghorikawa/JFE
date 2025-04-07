@@ -24,12 +24,12 @@ def match_saserareru_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # general pattern affirmative ございます
+        [  # general pattern
             {"pos":"VERB"},
             {"pos": "AUX", "lemma": "する", "OP": "?"},
             {"pos":"AUX", "lemma": {"IN": ["せる","させる"]}},
             {"pos": "AUX", "lemma": "られる"},
-        ]
+        ],
     ]
 
     matcher.add("saserareru", patterns)

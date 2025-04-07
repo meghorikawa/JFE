@@ -23,12 +23,7 @@ def apply_matching(text):
 
 # Example usage
 text = ('''
-仕事を辞めさせられた。
-息子は退学させられた。
-彼女に2時間も待たせられた。
-その映画は考えさせられる。
-毎日母に野菜を食べさせられる。
-フィアンセのお父さんにお酒を飲ませられた。''')
+こさせられる''')
 
 results = apply_matching(text)
 

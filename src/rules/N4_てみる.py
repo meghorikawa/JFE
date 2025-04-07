@@ -19,7 +19,7 @@ Verb (て form)	+   みる
 '''
 
 
-def match_teshimau_N4(nlp, doc):
+def match_temiru_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [[# general patern - Verb + で + みる
@@ -30,7 +30,7 @@ def match_teshimau_N4(nlp, doc):
         ],
     ]
 
-    matcher.add("teshimau", patterns)
+    matcher.add("temiru", patterns)
     matches = matcher(doc)
 
     # Count occurrences

@@ -37,7 +37,7 @@ def match_tokoro_bakari_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # Pattern for ところ
+        [  # Pattern for てところ
             {"pos": "VERB"},
             {"pos": "AUX", "orth": "た"},
             {"pos": {"IN": ["NOUN","SCONJ"]}, "lemma": "ところ"},

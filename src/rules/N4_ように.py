@@ -28,7 +28,6 @@ def match_youni_N4(nlp, doc):
             { },
             {"pos": {"IN": ["NOUN","AUX"]}, "lemma": "よう"},
             {"pos": "AUX", "orth": {"IN":["に","な"]}},
-            {"lemma": {"NOT_IN": ["なる"]}} # include this to distinguish from ようになる
         ]
     ]
 

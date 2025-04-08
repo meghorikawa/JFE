@@ -25,7 +25,7 @@ def match_nasai_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # Pattern for てところ
+        [  # Pattern for VERB + なさい
             {"pos": "VERB"},
             {"pos": "AUX", "lemma": "なさる"},
         ]

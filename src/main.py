@@ -18,14 +18,19 @@ def apply_matching(text):
                 match_func = getattr(module, attr)
                 if callable(match_func):
                     all_matches[attr] = match_func(nlp, doc)
-
+    print(f'Number of Forms: {len(rule_modules)}')
     return all_matches
 
 # Example usage
 text = ('''
-遅れてすみません。
-心配をかけてすみません。
-電話に出れなくてすみません。''')
+きれいだと思わない？
+それはかなりむずかしいと思います。
+今日は午後から雨が降ると思います。
+この問題、テストに出ると思いますか。
+日本に留学しようと思っています。
+仕事を続けるのはむりだと思う。
+アメリカでは、何が一番人気のあるスポーツだと思う？
+今度の休みに海へ行こうと思っています。''')
 
 results = apply_matching(text)
 

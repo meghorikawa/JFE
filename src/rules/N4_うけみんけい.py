@@ -7,7 +7,8 @@ from collections import Counter
 '''
 Level: N4
 
-Passive form in Japanese
+Passive form in Japanese, 
+this is also formed same as potential form....the difference which is use based....
 
 ケーキが誰かに食べられた！
 みんなに変だと言われます。
@@ -22,7 +23,7 @@ def match_ukemi_N4(nlp, doc):
     patterns = [
         [# しよう
             {"pos":"VERB"},
-            {"pos": "AUX", "lemma": "られる"}
+            {"pos": "AUX", "lemma": "られる"},
         ],[ # 五段　ーれる
             {"pos": "VERB"},
             {"pos": "AUX","lemma": "れる"},

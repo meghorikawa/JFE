@@ -23,12 +23,7 @@ def apply_matching(text):
 
 # Example usage
 text = ('''
-雨らしい。
-男らしい。
-女らしい。
-学生らしくもっと勉強しなさい。
-今日は君らしくないな。
-これからも、自分らしく生きていきたいです。''')
+そんなことを信じられない。''')
 
 results = apply_matching(text)
 

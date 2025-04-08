@@ -25,7 +25,7 @@ def match_mitaini_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # Pattern for みたい だ
+        [  # Pattern for みたい に・な
             {},
             {"pos": "AUX", "lemma": "みたい"},
             {"pos": "AUX","orth": {"IN":["に","な"]}},

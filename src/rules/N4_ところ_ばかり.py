@@ -6,7 +6,7 @@ from collections import Counter
 Level: N4
 
 
-Verb (た form)	+ ところ
+Verb (た form)	+ ところ - describes actions actions that have just ended
 Verb (た form)	+ ばかり
 
 今起きたところです。
@@ -21,7 +21,7 @@ Verb (た form)	+ ばかり
 田中さんは先月にこの会社に入ったばかりです。
 
 
-also add ている +　ところ form
+also add ている +　ところ form - describes current actions ongoing
 
 彼は入院しているところです。
 今料理をしているところです。
@@ -29,6 +29,11 @@ also add ている +　ところ form
 姉は電話をかけているところだ。
 子どもを産んだばかりなので、うちで休んでいるところです。
 彼女はお茶を飲みながら雑誌を読んでいるところです。
+
+add ところ form - describes actions that are about to begin
+
+今から帰るところです。
+
 
 '''
 
@@ -50,6 +55,9 @@ def match_tokoro_bakari_N4(nlp, doc):
             {"pos": "AUX", "lemma": "する", "OP": "?"},
             {"pos": "SCONJ", "lemma" : {"IN" :["で", "て"]}},
             {"pos": "VERB", "lemma": "いる"},
+            {"pos": {"IN": ["NOUN", "SCONJ"]}, "lemma": "ところ"},
+        ],[ # pattern for ところ with plain verb form
+            {"pos": "VERB"},
             {"pos": {"IN": ["NOUN", "SCONJ"]}, "lemma": "ところ"},
         ]
     ]

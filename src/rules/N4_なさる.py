@@ -26,7 +26,7 @@ def match_nasaru_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
-        [  # Pattern for てところ
+        [  # Pattern for honorific verb form なさる
             {},
             {"pos": "VERB", "lemma": "なさる"},
             {},

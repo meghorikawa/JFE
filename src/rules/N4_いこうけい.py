@@ -7,7 +7,7 @@ from collections import Counter
 '''
 Level: N4
 
-Passive form in Japanese
+Volitional in Japanese
 
 今日から自転車で出勤しよう。
 もう11時だ。早く寝よう。
@@ -31,7 +31,8 @@ def match_ikoukei_N4(nlp, doc):
             {"pos": "AUX", "lemma": "しよう"}
         ],[ # 五段　ーれる
             {"pos": "VERB"},
-            {"pos": "AUX","lemma": "れる"},
+            {"pos": "AUX","lemma": "ます"},
+            {"pos": "AUX", "lemma": "しよう"}
         ]
     ]
 

@@ -45,7 +45,7 @@ def extract_NPs(clause_list):
         if token.pos_ in ["NOUN", "PROPN", "PRON"]:
             np = [token]
             for child in token.children:
-                if child.dep_ in ["amod", "det", "nmod", "compound"]:
+                if child.dep_ in ["amod", "det", "nmod", "compound", "case"]:
                     np.append(child)
             np = sorted(np, key=lambda x: x.i) # keep original order of tokens
             NP_list.append("".join([t.text for t in np]))
@@ -57,7 +57,7 @@ def extract_VPs(clause_list):
         if token.pos_ in ["VERB", "AUX"]:
             vp = [token]
             for child in token.children:
-                if child.dep_ in ["aux", "advmod", "mark", "compound", "case"]:
+                if child.dep_ in ["aux", "advmod", "mark", "compound"]:
                     vp.append(child)
             vp = sorted(vp, key=lambda x: x.i)
             VP_list.append("".join([vp.pop()]))

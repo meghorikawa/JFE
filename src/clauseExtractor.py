@@ -12,7 +12,7 @@ doc = None
 clauses = []
 # global list of clause heads
 clauseHeadList = []
-# gloabl list of NP
+# global list of NP
 NP_list = []
 # global list of VP
 VP_list = []

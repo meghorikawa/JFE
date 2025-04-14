@@ -13,7 +13,7 @@ new_writings_list = os.listdir("/Users/megu/Desktop/corpus_add")
 
 writings_dir = "/Users/megu/Desktop/corpus_add"
 corpus_dir = "/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/Corpus"
-
+corpus_data = "/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/ijas_202205_WC.xlsx"
 
 def copy_new_writings(writings_dir):
     for filename in os.listdir(writings_dir):
@@ -65,14 +65,15 @@ def clean_writings(input_file_path, output_path):
     print(f"Copied and cleaned {input_file_path} to {output_path}")
 
 # clean the corpus texts
-for participant_name in participant_list:
-    participant_path = os.path.join(corpus_dir, participant_name)
-    if not os.path.isdir(participant_path):
-        continue
-    docs_list = os.listdir(participant_path)
-    for doc in docs_list:
-        doc_path = os.path.join(participant_path, doc)
-        clean_writings(doc_path, f"/Users/megu/Desktop/cleaned_corpus/{participant_name}/{doc}")
+def clean_corpus():
+    for participant_name in participant_list:
+        participant_path = os.path.join(corpus_dir, participant_name)
+        if not os.path.isdir(participant_path):
+            continue
+        docs_list = os.listdir(participant_path)
+        for doc in docs_list:
+            doc_path = os.path.join(participant_path, doc)
+            clean_writings(doc_path, f"/Users/megu/Desktop/cleaned_corpus/{participant_name}/{doc}")
 
 
 # additionally pull mother tongue data and J-cat score from the participant data list

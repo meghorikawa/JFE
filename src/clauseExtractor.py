@@ -51,6 +51,18 @@ def extract_NPs(clause_list):
             NP_list.append("".join([t.text for t in np]))
     return NP_list
 
+# extract verb phrases
+def extract_VPs(clause_list):
+    for token in clause_list:
+        if token.pos_ in ["VERB", "AUX"]:
+            vp = [token]
+            for child in token.children:
+                if child.dep_ in ["aux", "advmod", "mark", "compound", "case"]:
+                    vp.append(child)
+            vp = sorted(vp, key=lambda x: x.i)
+            VP_list.append("".join([vp.pop()]))
+    return VP_list
+
 # helper function that traverses tree branches recursively
 def traverse_tree(node):
     tokens = [node]
@@ -114,3 +126,7 @@ def clear():
     clauses = []
     # global list of clause heads
     clauseHeadList = []
+    # reset NP
+    NP_list = []
+    # reset VP
+    VP_list = []

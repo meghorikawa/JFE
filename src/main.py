@@ -1,7 +1,6 @@
 # main method I need to create separate line items for each participant and each writing.
 
-# participant_writing num　
-
+# make a list of each directory () in corpus
 
 import spacy
 from rules import rule_modules  # Dynamically import all rule files
@@ -9,7 +8,7 @@ from rules import rule_modules  # Dynamically import all rule files
 nlp = spacy.load("ja_ginza")
 
 def apply_matching(text):
-    doc = nlp(text)  # Process text through pipeline first
+    doc = nlp(text)  # Process text first
     all_matches = {}
 
     for module_name, module in rule_modules.items():

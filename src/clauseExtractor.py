@@ -12,6 +12,10 @@ doc = None
 clauses = []
 # global list of clause heads
 clauseHeadList = []
+# gloabl list of NP
+NP_list = []
+# global list of VP
+VP_list = []
 
 # the main function which will build and return a nested list of clauses within a sentence
 def extract_clauses(adoc):
@@ -35,6 +39,17 @@ def extract_clauses(adoc):
 
     return clauses
 
+# Extract Noun phrases from a clause returns list of noun phrases
+def extract_NPs(clause_list):
+    for token in clause_list:
+        if token.pos_ in ["NOUN", "PROPN", "PRON"]:
+            np = [token]
+            for child in token.children:
+                if child.dep_ in ["amod", "det", "nmod", "compound"]:
+                    np.append(child)
+            np = sorted(np, key=lambda x: x.i) # keep original order of tokens
+            NP_list.append("".join([t.text for t in np]))
+    return NP_list
 
 # helper function that traverses tree branches recursively
 def traverse_tree(node):

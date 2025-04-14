@@ -3,8 +3,9 @@
 import pipline
 import json
 
-text = ("今日は君らしくないな。")
+text = ("死ぬほど、あなとのことがすき。")
 processed_text = pipline.preprocess(text)
+
 
 #Save JSON
 with open("processed_text.json", "w", encoding="utf-8") as f:

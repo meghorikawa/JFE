@@ -25,6 +25,7 @@ def preprocess(text):
         }
         for token in sent:
             # get reading of token
+            print(token.morph)
             reading = token.morph.get("Reading")[0]
             token_data = {
                 "id":token.i +1,

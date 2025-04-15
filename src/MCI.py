@@ -1,12 +1,13 @@
 # This is a method to calculate the Morphological Complexity Index as described in
 # Brezina and Pallotti 2019 "Morphological Complexity in written L2 texts"
+# Surface MCI (Morphological diversity) vs. Inflectional MCI (Grammatical variety)
 
 import random
 from collections import defaultdict
 from statistics import mean
 
 '''
-1. Exract all unique verb lemma+form tokens
+1. Extract all unique verb lemma+form tokens
 2. Randomly select K verbs without repetition from each subset (k=5 or k=10)
 3. Repeat sampling process n times
 4. Calculate mean MCI across the n samples'''

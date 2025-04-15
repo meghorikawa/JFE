@@ -13,7 +13,7 @@ from statistics import mean
 4. Calculate mean MCI across the n samples'''
 
 
-def MCI_10(text, sample_size, n_samples):
+def MCI(text, sample_size, n_samples):
     '''
 
     :param text: the processed learner text

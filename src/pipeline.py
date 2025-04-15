@@ -1,7 +1,7 @@
 ## method to handle the pipeline for text pre-processing
 
 import spacy
-import json
+
 
 
 # method to process document and output in JSON format for easy feature parsing.
@@ -36,6 +36,7 @@ def preprocess(text):
                 "tag":token.tag_, # detailed pos tag
                 "dep":token.dep_,
                 "head":token.head.i + 1 if token.head != token else 0, # dependency head
+                "inflection": token.morph.get("Inflection"),
             }
             sentence_data["tokens"].append(token_data)
         output[0]["paragraphs"][0]["sentences"].append(sentence_data)

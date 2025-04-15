@@ -1,11 +1,10 @@
 # a method created to test the different functions.
 
-import pipline
+from src import pipeline
 import json
 
-text = ("死ぬほど、あなとのことがすき。")
-processed_text = pipline.preprocess(text)
-
+text = ("死ぬほど、あなとのことがすき。野菜むりやりに食べさせられた。")
+processed_text = pipeline.preprocess(text)
 
 #Save JSON
 with open("processed_text.json", "w", encoding="utf-8") as f:

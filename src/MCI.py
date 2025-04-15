@@ -52,7 +52,7 @@ def MCI(text, sample_size, n_samples):
     return round(mean(surface_mcis), 2), round(mean(inflection_mcis), 2)
 
 
-# method to extract verbs from the text
+# method to extract verbs and auxiliaries from the text
 def get_verb_list(doc):
     verb_data = []
     for token in doc:
@@ -60,5 +60,19 @@ def get_verb_list(doc):
             lemma = token.lemma_
             surface = token.text
             inflections = token.morph.get("Inflection")
-            verb_data.append((lemma, surface, inflections))
+
+            # collect auxiliaries and their inflections
+            func_aux = set()
+            for child in token.children:
+                if child.pos_ == 'AUX':
+                    aux_lemma = child.lemma_
+                    aux_infl = child.morph.get("Inflection")
+                    func_aux.update(aux_infl)
+                    func_aux.add(aux_lemma)
+
+            # include the verb's inflection data as well
+            func_aux.update(inflections)
+
+            verb_data.append((lemma, surface, list(set(inflections)), list(func_aux)))
+
     return verb_data

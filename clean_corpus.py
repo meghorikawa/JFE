@@ -108,7 +108,7 @@ def assign_JLPT(data_path):
 
     df = pd.read_csv(data_path)
     df['JLPT']=df['J-CAT (合計)'].apply(Jcat_JLPT)
-    df.to_csv("participant_data2.csv", index=False)
+    df.to_csv("participant_data.csv", index=False)
     print('DF saved')
 
 #helper method which contains score ranges

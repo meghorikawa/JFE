@@ -5,6 +5,7 @@
 import os
 import shutil
 import re
+import pandas as pd
 
 # make a list of the current participants writings
 participant_list = os.listdir("/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/Corpus")
@@ -41,7 +42,6 @@ def copy_new_writings(writings_dir):
 
 def clean_writings(input_file_path, output_path):
     # Ensure output directory exists
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     # Open Original file
     with open(input_file_path, "r", encoding="utf-8") as f:
@@ -75,5 +75,29 @@ def clean_corpus():
             doc_path = os.path.join(participant_path, doc)
             clean_writings(doc_path, f"/Users/megu/Desktop/cleaned_corpus/{participant_name}/{doc}")
 
+copy_new_writings(writings_dir)
+
 
 # additionally pull mother tongue data and J-cat score from the participant data list
+
+# read csv of participant data
+participant_data_df = pd.read_excel("/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/ijas_202205_WC.xlsx")
+
+#filter by the participants I have writing data for (some participants only submitted oral data
+filtered_df = participant_data_df[participant_data_df['協力者'].isin(participant_list)]
+
+# get list of missing participants now mentioned in datasheet (if there are any)
+df_participants = set(participant_data_df['協力者'])
+missing_participants = df_participants - set(participant_list)
+
+#extract desired data columns
+participant_df = filtered_df[['協力者', '調査地', '母語','年齢', '性別', 'J-CAT (合計)']]
+
+
+# save to csv
+participant_df.to_csv("participant_data.csv", index=False)
+
+with open("missing_participants.txt","w") as f:
+    for name in missing_participants:
+        f.write(name + "\n")
+f.close()

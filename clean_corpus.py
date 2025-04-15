@@ -10,9 +10,9 @@ import pandas as pd
 # make a list of the current participants writings
 participant_list = os.listdir("/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/Corpus")
 
-new_writings_list = os.listdir("/Users/megu/Desktop/corpus_add")
+#new_writings_list = os.listdir("/Users/megu/Desktop/corpus_add")
 
-writings_dir = "/Users/megu/Desktop/corpus_add"
+#writings_dir = "/Users/megu/Desktop/corpus_add"
 corpus_dir = "/Corpus"
 corpus_data = "/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/ijas_202205_WC.xlsx"
 
@@ -75,7 +75,7 @@ def clean_corpus():
             doc_path = os.path.join(participant_path, doc)
             clean_writings(doc_path, f"/Users/megu/Desktop/cleaned_corpus/{participant_name}/{doc}")
 
-copy_new_writings(writings_dir)
+#copy_new_writings(writings_dir)
 
 
 # additionally pull mother tongue data and J-cat score from the participant data list
@@ -115,13 +115,13 @@ def assign_JLPT(data_path):
 def Jcat_JLPT(score):
     if score == 999:
         return 'NS'
-    elif 0 <= score < 149:
+    elif 0 <= score < 150:
         return 'N5'
-    elif 150 <= score < 199:
+    elif 150 <= score < 200:
         return 'N4'
-    elif 200 <= score < 249:
+    elif 200 <= score < 250:
         return 'N3'
-    elif 250 <= score < 299:
+    elif 250 <= score < 300:
         return 'N2'
     elif 300 <= score <= 998:
         return 'N1'
@@ -129,4 +129,4 @@ def Jcat_JLPT(score):
         return 'Invalid Score'
 
 # import participant data
-assign_JLPT('/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/participant_data.csv')
+assign_JLPT('/Users/megu/Documents/Tübingen Universität/Thesis/participant_data.csv')

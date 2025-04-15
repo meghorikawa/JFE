@@ -115,15 +115,15 @@ def assign_JLPT(data_path):
 def Jcat_JLPT(score):
     if score == 999:
         return 'NS'
-    elif 0 <= score < 100:
+    elif 0 <= score < 149:
         return 'N5'
-    elif 100 <= score < 150:
+    elif 150 <= score < 199:
         return 'N4'
-    elif 150 <= score < 200:
+    elif 200 <= score < 249:
         return 'N3'
-    elif 200 <= score < 250:
+    elif 250 <= score < 299:
         return 'N2'
-    elif 250 <= score <= 998:
+    elif 300 <= score <= 998:
         return 'N1'
     else:
         return 'Invalid Score'

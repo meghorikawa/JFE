@@ -11,15 +11,26 @@ from statistics import mean
 3. Repeat sampling process n times
 4. Calculate mean MCI across the n samples'''
 
-def MCI_10 (verb_list, sample_size, n_samples):
-    if sample_size > len(verb_list):
-        return None # there aren't enough verbs to sample from the text
 
-    surface_mci = []
-    inflection_mci = []
+def MCI_10(text, sample_size, n_samples):
+    '''
+
+    :param text: the processed learner text
+    :param sample_size: number of samples (i.e. 5, or 10)
+    :param n_samples: number of times to sample
+    :return:
+    '''
+
+    verb_list = get_verb_list(text)
+
+    if sample_size > len(verb_list):
+        return None  # there aren't enough verbs to sample from the text
+
+    surface_mcis = []
+    inflection_mcis = []
 
     # random sampling without repetition
-    for i in range(n_samples):
+    for _ in range(n_samples):
         sample = random.sample(verb_list, sample_size)
 
         lemma_to_forms = defaultdict(list)
@@ -31,10 +42,17 @@ def MCI_10 (verb_list, sample_size, n_samples):
                 lemma_to_inflections[lemma].append(infl)
 
         # incorporate the calculation
+        surface_mci = sum(len(forms) for forms in lemma_to_forms.values()) / len(lemma_to_forms)
+        inflection_mci = sum(len(infls) for infls in lemma_to_inflections.values()) / len(lemma_to_inflections)
+
+        # store values to average later
+        surface_mcis.append(surface_mci)
+        inflection_mcis.append(inflection_mci)
+    return round(mean(surface_mcis), 2), round(mean(inflection_mcis), 2)
 
 
 # method to extract verbs from the text
-def get_verb_list (doc):
+def get_verb_list(doc):
     verb_data = []
     for token in doc:
         if token.pos_ == 'VERB':

@@ -13,7 +13,7 @@ participant_list = os.listdir("/Users/megu/Documents/Tübingen Universität/Thes
 new_writings_list = os.listdir("/Users/megu/Desktop/corpus_add")
 
 writings_dir = "/Users/megu/Desktop/corpus_add"
-corpus_dir = "/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/Corpus"
+corpus_dir = "/Corpus"
 corpus_data = "/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/ijas_202205_WC.xlsx"
 
 def copy_new_writings(writings_dir):
@@ -93,6 +93,7 @@ missing_participants = df_participants - set(participant_list)
 #extract desired data columns
 participant_df = filtered_df[['協力者', '調査地', '母語','年齢', '性別', 'J-CAT (合計)']]
 
+participant_df = participant_df.drop_duplicates(subset=['協力者', '調査地', '母語','年齢', '性別', 'J-CAT (合計)'])
 
 # save to csv
 participant_df.to_csv("participant_data.csv", index=False)

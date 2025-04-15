@@ -7,7 +7,7 @@ from statistics import mean
 
 '''
 1. Exract all unique verb lemma+form tokens
-2. randomly select K verbs without repition from each subset (k=5 or k=10)
+2. Randomly select K verbs without repetition from each subset (k=5 or k=10)
 3. Repeat sampling process n times
 4. Calculate mean MCI across the n samples'''
 
@@ -18,8 +18,19 @@ def MCI_10 (verb_list, sample_size, n_samples):
     surface_mci = []
     inflection_mci = []
 
+    # random sampling without repetition
     for i in range(n_samples):
         sample = random.sample(verb_list, sample_size)
+
+        lemma_to_forms = defaultdict(list)
+        lemma_to_inflections = defaultdict(list)
+
+        for lemma, surface, inflections in sample:
+            lemma_to_forms[lemma].append(surface)
+            for infl in inflections:
+                lemma_to_inflections[lemma].append(infl)
+
+        # incorporate the calculation
 
 
 # method to extract verbs from the text

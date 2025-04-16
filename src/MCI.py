@@ -4,6 +4,7 @@
 
 import random
 from collections import defaultdict
+from itertools import combinations
 from statistics import mean
 
 '''
@@ -27,29 +28,42 @@ def MCI(text, sample_size, n_samples):
     if sample_size > len(verb_list):
         return None  # there aren't enough verbs to sample from the text
 
-    surface_mcis = []
-    inflection_mcis = []
+    sample_sets = []
 
     # random sampling without repetition
     for _ in range(n_samples):
+
+
+        #sample values
         sample = random.sample(verb_list, sample_size)
 
-        lemma_to_forms = defaultdict(list)
-        lemma_to_inflections = defaultdict(list)
+        lemma_to_set = defaultdict(set)
 
-        for lemma, surface, inflections in sample:
-            lemma_to_forms[lemma].append(surface)
-            for infl in inflections:
-                lemma_to_inflections[lemma].append(infl)
+        # add lemmas to set
+        for lemma, orth, inflections, func_aux in sample:
+            lemma_to_set[lemma].add(orth)
 
-        # incorporate the calculation
-        surface_mci = sum(len(forms) for forms in lemma_to_forms.values()) / len(lemma_to_forms)
-        inflection_mci = sum(len(infls) for infls in lemma_to_inflections.values()) / len(lemma_to_inflections)
+        full_sample_set = set()
+        for s in lemma_to_set.values():
+            full_sample_set.update(s)
+        sample_sets.append(full_sample_set)
 
-        # store values to average later
-        surface_mcis.append(surface_mci)
-        inflection_mcis.append(inflection_mci)
-    return round(mean(surface_mcis), 2), round(mean(inflection_mcis), 2)
+        # Mean Within Subset Variety
+        mean_subset_variety = mean(len(s) for s in sample_sets)
+
+        # Mean Between Subset Variety
+        bsv_values = []
+        for a, b in combinations(sample_sets, 2):
+            unique_diff = len(a.symmetric_difference(b))
+            bsv_values.append(unique_diff)
+
+        if bsv_values:
+            between_subset_variety = mean(bsv_values)
+        else:
+            between_subset_variety = 0
+    # final calculation
+    mci = ((mean_subset_variety + (between_subset_variety/2))- 1)
+    return round(mci,3)
 
 
 # method to extract verbs and auxiliaries from the text
@@ -58,7 +72,7 @@ def get_verb_list(doc):
     for token in doc:
         if token.pos_ == 'VERB':
             lemma = token.lemma_
-            surface = token.text
+            orth = token.text
             inflections = token.morph.get("Inflection")
 
             # collect auxiliaries and their inflections
@@ -73,6 +87,6 @@ def get_verb_list(doc):
             # include the verb's inflection data as well
             func_aux.update(inflections)
 
-            verb_data.append((lemma, surface, list(set(inflections)), list(func_aux)))
+            verb_data.append((lemma, orth, list(set(inflections)), list(func_aux)))
 
     return verb_data

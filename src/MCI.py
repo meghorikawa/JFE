@@ -33,12 +33,10 @@ def MCI(text, sample_size, n_samples):
     # random sampling without repetition
     for _ in range(n_samples):
 
-
         #sample values
         sample = random.sample(verb_list, sample_size)
 
         lemma_to_set = defaultdict(set)
-
         # add lemmas to set
         for lemma, orth, inflections, func_aux in sample:
             lemma_to_set[lemma].add(orth)
@@ -49,18 +47,18 @@ def MCI(text, sample_size, n_samples):
         sample_sets.append(full_sample_set)
 
         # Mean Within Subset Variety
-        mean_subset_variety = mean(len(s) for s in sample_sets)
+    mean_subset_variety = mean(len(s) for s in sample_sets)
 
-        # Mean Between Subset Variety
-        bsv_values = []
-        for a, b in combinations(sample_sets, 2):
-            unique_diff = len(a.symmetric_difference(b))
-            bsv_values.append(unique_diff)
+    # Mean Between Subset Variety
+    bsv_values = []
+    for a, b in combinations(sample_sets, 2):
+        unique_diff = len(a.symmetric_difference(b))
+        bsv_values.append(unique_diff)
 
-        if bsv_values:
-            between_subset_variety = mean(bsv_values)
-        else:
-            between_subset_variety = 0
+    if bsv_values:
+        between_subset_variety = mean(bsv_values)
+    else:
+        between_subset_variety = 0
     # final calculation
     mci = ((mean_subset_variety + (between_subset_variety/2))- 1)
     return round(mci,3)

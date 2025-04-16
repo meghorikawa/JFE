@@ -1,3 +1,4 @@
+# clean this up so that the text processing is done in the main method
 import math
 import spacy
 import clauseExtractor

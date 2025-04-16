@@ -7,6 +7,10 @@ from collections import defaultdict
 from itertools import combinations
 from statistics import mean
 
+import spacy
+
+nlp = spacy.load('ja_ginza')
+
 '''
 1. Extract all unique verb lemma+form tokens
 2. Randomly select K verbs without repetition from each subset (k=5 or k=10)
@@ -14,12 +18,13 @@ from statistics import mean
 4. Calculate mean MCI across the n samples'''
 
 
-def MCI(text, sample_size, n_samples):
+def MCI(text, sample_size, n_samples, mode):
     '''
 
     :param text: the processed learner text
     :param sample_size: number of samples (i.e. 5, or 10)
     :param n_samples: number of times to sample
+    :param mode: 'surface' for only looking at surface forms or 'inflection'
     :return:
     '''
 
@@ -39,7 +44,11 @@ def MCI(text, sample_size, n_samples):
         lemma_to_set = defaultdict(set)
         # add lemmas to set
         for lemma, orth, inflections, func_aux in sample:
-            lemma_to_set[lemma].add(orth)
+            if mode == 'surface':
+                lemma_to_set[lemma].add(orth)
+            elif mode == 'inflection':
+                for infl in func_aux:
+                    lemma_to_set[lemma].add(infl)
 
         full_sample_set = set()
         for s in lemma_to_set.values():
@@ -86,5 +95,10 @@ def get_verb_list(doc):
             func_aux.update(inflections)
 
             verb_data.append((lemma, orth, list(set(inflections)), list(func_aux)))
-
+    print(verb_data)
     return verb_data
+
+text = "昨日、友達と映画を見に行きました。映画はとても面白かったです。それから、カフェでコーヒーを飲みながら話しました。たくさん笑って、楽しい時間を過ごしました。"
+
+doc = nlp(text)
+print(MCI(doc, 5, 100, "inflection"))

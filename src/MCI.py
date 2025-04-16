@@ -1,6 +1,6 @@
 # This is a method to calculate the Morphological Complexity Index as described in
 # Brezina and Pallotti 2019 "Morphological Complexity in written L2 texts"
-# Surface MCI (Morphological diversity) vs. Inflectional MCI (Grammatical variety)
+# Surface MCI (Morphological diversity) vs. Inflectional MCI (Grammatical variety)?
 
 import random
 from collections import defaultdict

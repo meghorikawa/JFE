@@ -3,7 +3,7 @@
 from src import pipeline
 import json
 
-text = ("まだそこまでははっきり分らない。もっとはっきりさせよう。")
+text = ("食べれば良い。ば良い。ばいい。の")
 processed_text = pipeline.preprocess(text)
 
 #Save JSON

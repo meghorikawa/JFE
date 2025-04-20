@@ -14,6 +14,10 @@ def make_bands(df, band_size):
     # remove low frequency items
     df = df[df['frequency'] >= min_freq].reset_index(drop=True)
 
+    # keep only necessary columns
+    keep_cols = ['rank', 'lForm', 'lemma', 'pos', 'frequency']
+    df = df[[col for col in keep_cols if col in df.columns]]
+
     # make bands
     bands = {}
     for i in range(0, len(df), band_size):
@@ -31,3 +35,4 @@ def make_bands(df, band_size):
 
 # return percent per band,
 
+print(make_bands(df,1500))

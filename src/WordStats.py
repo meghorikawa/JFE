@@ -1,5 +1,7 @@
 # clean this up so that the text processing is done in the main method
 import math
+from collections import Counter
+
 import spacy
 import clauseExtractor
 
@@ -79,6 +81,34 @@ def ccFreq():
 
     return (ccCounter / wordCount) * 100
 
+def get_noun_density(text):
+    # remove punctuation
+    filtered_tokens = [token.lemma_ for token in doc if not token.is_punct]
+
+    #proportion of Nouns vs. tokens
+    total_nouns = sum(1 for token in filtered_tokens if token.pos_ in {"NOUN", "PROPN", "PRON"})
+    total_tokens = len(text)
+
+    return total_nouns / total_tokens
+def get_verb_density(text):
+    # remove punctuation
+    filtered_tokens = [token.lemma_ for token in doc if not token.is_punct]
+
+    # proportion of Nouns vs. tokens
+    total_nouns = sum(1 for token in filtered_tokens if token.pos_ =="VERB")
+    total_tokens = len(text)
+
+    return total_nouns / total_tokens
+
+def get_adj_density(text):
+    # remove punctuation
+    filtered_tokens = [token.lemma_ for token in doc if not token.is_punct]
+
+    # proportion of Nouns vs. tokens
+    total_nouns = sum(1 for token in filtered_tokens if token.pos_ =="ADJ")
+    total_tokens = len(text)
+
+    return total_nouns / total_tokens
 
 # function to return the list of coordinating conjunctions
 def getCCList():
@@ -146,14 +176,14 @@ def get_uniqueWords():
 
 # method to write outputs to SC lists
 def write_SClist():
-    file = open('/Users/megu/Documents/Tübingen Universität/Language Development/Research Project/SClist.txt', 'a')
+    file = open('SClist.txt', 'a')
     # iterate through the SC list and write to file
     for item in scList:
         file.write(f'{item}\n')
     file.close()
 # method to write outputs to CC lists
 def write_CClist():
-    file = open('/Users/megu/Documents/Tübingen Universität/Language Development/Research Project/CClist.txt', 'a')
+    file = open('CClist.txt', 'a')
     # iterate through the CC list and write to file
     for item in ccList:
         file.write(f'{item}\n')

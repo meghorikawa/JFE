@@ -1,0 +1,120 @@
+''' a class to handle the texts, it should log to different measures, and the stats of the participant
+native language - taken from participant list
+proficency level - taken from participant meta data list
+
+
+
+'''
+
+class Text_analysis:
+
+    def __init__(self, participant, text_name, gender,age,loc, score, lang, JLPT):
+        # participant number
+        self.participant = participant
+        self.age = age
+        self.loc = loc
+        self.gender = gender
+        # native language
+        self.lang = lang
+        # text name
+        self.text_name = text_name
+        # J-cat score
+        self.score = score
+        # Estimated JLPT level
+        self.JLPT = JLPT
+
+        # complexity measures and frequency data
+
+        # text length
+        self.text_len = 0
+        # Average sent length (words per sentence)
+        self.WPSavg = 0
+        # Frequency of Coordinating Conjunctions per 100 words
+        self.CCfreq = 0
+        # Frequency of subordinating conjunctions per 100 words
+        self.SCfreq = 0
+        # Avg clause length
+        self.clauseLen = 0
+        # Avg clause count per sent
+        self.clauseCount = 0
+
+        # Lexical Measures
+        self.CTTR = 0
+        self.MTLD = 0
+
+        # Lexical Density
+        self.noun_density = 0
+        self.verb_density = 0
+        self.adjective_density = 0
+        self.adverb_density = 0
+
+        #lexical Sophistication
+        self.LFP_band_percentages = {}
+        self.LFP_band_counts = {}
+        self.LFP_total_tokens=0
+        self.LFP_oov_list=[]
+
+
+        # Morphological Complexity
+        self.MCI_5_surface = 0
+        self.MCI_10_surface = 0
+        self.MCI_5_inflection = 0
+        self.MCI_10_inflection = 0
+
+        # Criterial Features
+        self.pattern_matches = {} # refine this later to have a flat list for each feature
+
+    # A to_dict method to easily convert to df later
+    def to_dict(self):
+        # Start with metadata and basic stats
+        data = {
+            "participant": self.participant,
+            "text_name": self.text_name,
+            "gender": self.gender,
+            "age": self.age,
+            "loc": self.loc,
+            "JCATscore": self.score,
+            "lang": self.lang,
+            "JLPT": self.JLPT,
+            "text Length": self.text_len,
+            "Sentence Length": self.WPSavg,
+            "CCfreq": self.CCfreq,
+            "SCfreq": self.SCfreq,
+            "clauseLen": self.clauseLen,
+            "clauseCount": self.clauseCount,
+            "CTTR": self.CTTR,
+            "MTLD": self.MTLD,
+            "noun_density": self.noun_density,
+            "verb_density": self.verb_density,
+            "adjective_density": self.adjective_density,
+            "adverb_density": self.adverb_density,
+            "MCI_5_Surface": self.MCI_5_surface,
+            "MCI_10_Surface": self.MCI_10_surface,
+            "MCI_5_Inflection": self.MCI_5_inflection,
+            "MCI_10_Inflection": self.MCI_10_inflection,
+            "LFP_total_tokens": self.LFP_total_tokens,
+            #"LFP_OOV_List": ", ".join(self.LFP_oov_list)  # Convert list to string
+    }
+
+        # Add LFP band percentages
+        for band, value in self.LFP_band_percentages.items():
+            data[f"LFP_{band}_percent"] = value
+
+        # Add LFP band counts
+        for band, value in self.LFP_band_counts.items():
+            data[f"LFP_{band}_count"] = value
+
+        # Add pattern match data
+        for match_key, match_val in self.pattern_matches.items():
+            data[match_key] = match_val
+
+        return data
+
+# set attribute method to set value without manually defining a set method for each attribute
+    def __setattr__(self, key, value):
+        if key in ["participant", "name", "gender", "age", "loc", "score", "lang", "JLPT"]:
+            # Check if the key is already initialized (set in the constructor)
+            if key in self.__dict__:
+                raise AttributeError(f"Cannot modify attribute {key} once object is initialized.")
+        # Allow other attributes to be set freely
+        super().__setattr__(key, value)

@@ -95,10 +95,5 @@ def get_verb_list(doc):
             func_aux.update(inflections)
 
             verb_data.append((lemma, orth, list(set(inflections)), list(func_aux)))
-    print(verb_data)
     return verb_data
 
-text = "昨日、友達と映画を見に行きました。映画はとても面白かったです。それから、カフェでコーヒーを飲みながら話しました。たくさん笑って、楽しい時間を過ごしました。"
-
-doc = nlp(text)
-print(MCI(doc, 5, 100, "inflection"))

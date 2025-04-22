@@ -1,57 +1,32 @@
 # clean this up so that the text processing is done in the main method
 import math
 from collections import Counter
-
 import spacy
 import clauseExtractor
 
-nlp = spacy.load('ja_ginza')
-# global variable to save document text
-doctxt = ""
-# global variable of list of sentences in document
-sentences = []
 # global list of coordinating conjunctions list
 ccList = []
 # global list of subordinating conjunctions
 scList = []
-# global variable of doc
-doc = ""
 
 
-# function to load the document
-def load(aPath):
-    file = open(aPath, 'r')
-    global doctxt
-    global sentences
-    global doc
-    doctxt = file.read()
-    doc = nlp(doctxt)
-    sentences = list(doc.sents)
-
-# function to directly load a text (without a file)
-
-def load_text(atext):
-    global doctxt
-    global doc
-    global sentences
-    doctxt = atext
-    doc = nlp(doctxt)
-    sentences = list(doc.sents)
 
 # function to return the average words per sentence in a document
-def avgWPS():
+def avgWPS(text):
+    sentences = list(text.sents)
     return sum(len(sent) for sent in sentences) / len(sentences)
 
 
 # function to return the Corrected Type Token Ratio (number of unique words used per text)
 # # of tokens over the squ. root of 2* # of words in text.
-def cttr():
+def cttr(text):
     # get unique list of words using helper method
-    return len(get_uniqueWords()) / (math.sqrt(2 * len(doc)))
+    return len(get_uniqueWords(text)) / (math.sqrt(2 * len(text)))
 
 
 # function to return a normalized count per 100 words of subordinating conjunctions
-def scFreq():
+def scFreq(text):
+    sentences = list(text.sents)
     scCounter = 0
     wordCount = 0
     for sent in sentences:
@@ -67,7 +42,8 @@ def scFreq():
 
 
 # function to return a normalized count per 100 words of coordinating conjunctions
-def ccFreq():
+def ccFreq(text):
+    sentences = list(text.sents)
     ccCounter = 0
     wordCount = 0
     for sent in sentences:
@@ -83,7 +59,7 @@ def ccFreq():
 
 def get_noun_density(text):
     # remove punctuation
-    filtered_tokens = [token.lemma_ for token in doc if not token.is_punct]
+    filtered_tokens = [token.lemma_ for token in text if not token.is_punct]
 
     #proportion of Nouns vs. tokens
     total_nouns = sum(1 for token in filtered_tokens if token.pos_ in {"NOUN", "PROPN", "PRON"})
@@ -95,33 +71,35 @@ def get_verb_density(text):
     filtered_tokens = [token.lemma_ for token in doc if not token.is_punct]
 
     # proportion of Nouns vs. tokens
-    total_nouns = sum(1 for token in filtered_tokens if token.pos_ =="VERB")
+    total_nouns = sum(1 for token in filtered_tokens if token.pos_ in {"VERB", "AUX"})
     total_tokens = len(text)
 
     return total_nouns / total_tokens
 
 def get_adj_density(text):
     # remove punctuation
-    filtered_tokens = [token.lemma_ for token in doc if not token.is_punct]
+    filtered_tokens = [token.lemma_ for token in text if not token.is_punct]
 
     # proportion of Nouns vs. tokens
     total_nouns = sum(1 for token in filtered_tokens if token.pos_ =="ADJ")
     total_tokens = len(text)
 
     return total_nouns / total_tokens
+def get_adv_density(text):
+    # remove punctuation
+    filtered_tokens = [token.lemma_ for token in text if not token.is_punct]
 
-# function to return the list of coordinating conjunctions
-def getCCList():
-    return ccList
+    # proportion of Nouns vs. tokens
+    total_nouns = sum(1 for token in filtered_tokens if token.pos_ =="ADV")
+    total_tokens = len(text)
 
+    return total_nouns / total_tokens
 
-# function to return the list of subordinate clauses
-def getSCList():
-    return scList
 
 
 # function to return the average count of words per clause
-def words_per_clause():
+def clause_len(text):
+    sentences = list(text.sents)
     # instantiate a list to track each clauses' length
     wpcSum = []
 
@@ -137,7 +115,8 @@ def words_per_clause():
 
 
 # function to return the average count of clauses per sentence
-def clauses_per_sentence():
+def clauses_per_sentence(text):
+    sentences = list(text.sents)
     clauseCountList = []
     for sent in sentences:
         clauseExtractor.extract_clauses(sent)
@@ -146,28 +125,14 @@ def clauses_per_sentence():
         clauseExtractor.clear()
     return sum(clauseCountList) / len(sentences)
 
-
-def get_sents():
-    return len(sentences)
-
-
-def get_doc_text():
-    return doctxt
-
-
-def get_docLen():
-    return len(doc)
-
-
-def get_sentences():
-    return sentences
-
+def get_docLen(text):
+    return len(text)
 
 # helper method to create a list of unique words in the text
-def get_uniqueWords():
+def get_uniqueWords(text):
     seen = set()
     uniqueWord = []
-    for token in doc:
+    for token in text:
         if token.orth not in seen:
             uniqueWord.append(token)
         seen.add(token.orth)

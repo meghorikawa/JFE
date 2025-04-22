@@ -19,14 +19,16 @@ def mtld_calc(tokenized_text, ttr_threshold):
     type_count = 0
     types = set()
     factors = 0.0
-
+    #print("Token count:", len(tokenized_text))
     clean_text = remove_punctuation(tokenized_text)
     for token in clean_text:
         token_count += 1
-        if token not in types:
-            types.add(token)
+        token_text = token.text
+        if token_text not in types:
+            types.add(token_text)
             type_count += 1
         current_ttr = type_count / token_count
+        #print(f"Token: {token.text}, TTR: {current_ttr:.2f}")
         if current_ttr <= ttr_threshold:
             factors += 1
             token_count = 0
@@ -42,11 +44,12 @@ def mtld_calc(tokenized_text, ttr_threshold):
         return len(tokenized_text) / factors
     return -1
 
-def mtld (tokenized_text,ttr_threshold):
+def mtld (tokenized_text):
     if isinstance(tokenized_text, str):
         raise ValueError("Input should be tokenized text")
     if len(tokenized_text)< 50:
-        raise ValueError("Input should be at least 50 tokens")
+        #raise ValueError("Input should be at least 50 tokens")
+        return "tooshort"
     return mtld_calc(tokenized_text, ttr_threshold)
 
 def remove_punctuation(text):

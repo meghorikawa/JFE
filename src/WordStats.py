@@ -59,7 +59,7 @@ def ccFreq(text):
 
 def get_noun_density(text):
     # remove punctuation
-    filtered_tokens = [token.lemma_ for token in text if not token.is_punct]
+    filtered_tokens = [token for token in text if not token.is_punct]
 
     #proportion of Nouns vs. tokens
     total_nouns = sum(1 for token in filtered_tokens if token.pos_ in {"NOUN", "PROPN", "PRON"})
@@ -68,7 +68,7 @@ def get_noun_density(text):
     return total_nouns / total_tokens
 def get_verb_density(text):
     # remove punctuation
-    filtered_tokens = [token.lemma_ for token in doc if not token.is_punct]
+    filtered_tokens = [token for token in text if not token.is_punct]
 
     # proportion of Nouns vs. tokens
     total_nouns = sum(1 for token in filtered_tokens if token.pos_ in {"VERB", "AUX"})
@@ -78,7 +78,7 @@ def get_verb_density(text):
 
 def get_adj_density(text):
     # remove punctuation
-    filtered_tokens = [token.lemma_ for token in text if not token.is_punct]
+    filtered_tokens = [token for token in text if not token.is_punct]
 
     # proportion of Nouns vs. tokens
     total_nouns = sum(1 for token in filtered_tokens if token.pos_ =="ADJ")
@@ -87,7 +87,7 @@ def get_adj_density(text):
     return total_nouns / total_tokens
 def get_adv_density(text):
     # remove punctuation
-    filtered_tokens = [token.lemma_ for token in text if not token.is_punct]
+    filtered_tokens = [token for token in text if not token.is_punct]
 
     # proportion of Nouns vs. tokens
     total_nouns = sum(1 for token in filtered_tokens if token.pos_ =="ADV")

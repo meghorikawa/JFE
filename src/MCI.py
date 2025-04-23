@@ -97,3 +97,15 @@ def get_verb_list(doc):
             verb_data.append((lemma, orth, list(set(inflections)), list(func_aux)))
     return verb_data
 
+sample_text = '''２人はサンドイッチを作ってバスケットに入れてから、ピクニックの場所を確かめために地図を見ていた。
+そのうちに、犬はバスケットの中に飛び込みました。
+二人はそれを気付かずにピクニックに行きました。
+ピクニックの場所に着いたら、バスケットを開けると犬が急に飛び出して、二人はびっくりしました。
+最悪のことに、バスケットに入れた食べ物は全部犬に食べられてしまいました。'''
+
+#doc = nlp(sample_text)
+
+#MCI_5 = MCI(doc, 5, 10, 'surface')
+#MCI_10 = MCI(doc, 10, 10, 'inflection')
+
+#print(f'MCI_5: {MCI_5} MCI_10: {MCI_10}')

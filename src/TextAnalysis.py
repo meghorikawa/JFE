@@ -37,6 +37,10 @@ class Text_analysis:
         self.clauseLen = 0
         # Avg clause count per sent
         self.clauseCount = 0
+        #MDD
+        self.MDD = 0
+        #MDH
+        self.MHD = 0
 
         # Lexical Measures
         self.CTTR = 0
@@ -76,12 +80,14 @@ class Text_analysis:
             "JCATscore": self.score,
             "lang": self.lang,
             "JLPT": self.JLPT,
-            "text Length": self.text_len,
+            "Avg Sent Length": self.text_len,
             "Sentence Length": self.WPSavg,
             "CCfreq": self.CCfreq,
             "SCfreq": self.SCfreq,
-            "clauseLen": self.clauseLen,
-            "clauseCount": self.clauseCount,
+            "Avg Clause Length": self.clauseLen,
+            "ClauseCount": self.clauseCount,
+            "MDD": self.MDD,
+            "MHD": self.MHD,
             "CTTR": self.CTTR,
             "MTLD": self.MTLD,
             "noun_density": self.noun_density,

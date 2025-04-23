@@ -34,12 +34,12 @@ for participant in participant_list:
 
     #pull metadata on participant
     meta_data = participant_data[participant_data["協力者"] == participant]
-    gender = meta_data["性別"]
-    age = meta_data["年齢"]
-    loc = meta_data["調査地"]
-    score = meta_data["J-CAT (合計)"]
-    lang = meta_data["母語"]
-    jlpt = meta_data["JLPT"]
+    gender = meta_data["性別"].values[0]
+    age = meta_data["年齢"].values[0]
+    loc = meta_data["調査地"].values[0]
+    score = meta_data["J-CAT (合計)"].values[0]
+    lang = meta_data["母語"].values[0]
+    jlpt = meta_data["JLPT"].values[0]
 
     # go through each text in the list
     for text in text_list:
@@ -63,7 +63,7 @@ for participant in participant_list:
         text_obj.clauseCount = WordStats.clauses_per_sentence(doc)
         text_obj.CCfreq = WordStats.ccFreq(doc)
         text_obj.SCfreq = WordStats.scFreq(doc)
-
+        text_obj.MDD, text_obj.MHD = MDD_MHD.calculate_MDD_MHD(doc)
         # lexical Density
         text_obj.noun_density = WordStats.get_noun_density(doc)
         text_obj.verb_density = WordStats.get_verb_density(doc)
@@ -83,10 +83,10 @@ for participant in participant_list:
         text_obj.CTTR = WordStats.cttr(doc)
 
         # morphological Complexity index
-        text_obj.mci_5_surface = MCI.MCI(doc, 5, 100, "surface")
-        text_obj.mci_10_surface = MCI.MCI(doc, 10, 100, "surface")
-        text_obj.mci_5_inflection = MCI.MCI(doc, 5, 100, "inflection")
-        text_obj.mci_10_inflection = MCI.MCI(doc, 10, 100, "inflection")
+        text_obj.mci_5_surface = MCI.MCI(doc, 5, 100, 'surface')
+        text_obj.mci_10_surface = MCI.MCI(doc, 10, 100, 'surface')
+        text_obj.mci_5_inflection = MCI.MCI(doc, 5, 100, 'inflection')
+        text_obj.mci_10_inflection = MCI.MCI(doc, 10, 100, 'inflection')
 
 
         # add the text analysis object to text lists
@@ -94,5 +94,5 @@ for participant in participant_list:
         print(f"finished with {text}")
 
 
-df = pd.DataFrame([all_text_data])
+df = pd.DataFrame(all_text_data)
 df.to_csv('test.csv', index=False)

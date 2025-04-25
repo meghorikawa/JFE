@@ -76,6 +76,77 @@ def ccFreq(text):
 
     return (ccCounter / wordCount) * 100
 
+def sc_per_sentence(text):
+    '''
+    function to return the number of subordinate clauses per sentence in a document
+    :param text: the text to analyze
+    :return: the ratio of subordinate clauses per sentence
+    '''
+    sentences = list(text.sents)
+    sc_list = []
+    for sent in sentences:
+        clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
+        sc_list.append(sclause for sclause in sclauses)
+    return sum(sc_list) / len(sentences)
+def sc_per_clause(text):
+    '''
+    function to return the ratio of subordinate clauses over all clauses in a text
+    :param text: the text to analyze
+    :return: the ration of subordinate clauses to clauses
+    '''
+    sentences = list(text.sents)
+    sc_list = []
+    clause_count = []
+    for sent in sentences:
+        clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
+        sc_list.append(sclause for sclause in sclauses)
+        clause_count.append(len(clauses))
+    return sum(sc_list) / sum(clause_count)
+
+def cc_per_sentence(text):
+    '''
+    function to return the ratio of coordinate clauses over all sentences in a text
+    :param text: the text to analyze
+    :return: the Coordination Ratio
+    '''
+    sentences = list(text.sents)
+    cc_list = []
+    for sent in sentences:
+        clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
+        cc_list.append(cclause for cclause in cclauses)
+    return sum(cc_list) / len(sentences)
+
+def cc_per_clause(text):
+    '''
+    function to return the ratio of coordinate clauses over all clauses in a text
+    :param text: the text to analyze
+    :return: the ratio of coordinate clauses to clauses
+    '''
+    sentences = list(text.sents)
+    cc_list = []
+    clause_count = []
+    for sent in sentences:
+        clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
+        cc_list.append(cclause for cclause in cclauses)
+        clause_count.append(len(clauses))
+    return sum(cc_list) / sum(clause_count)
+
+def sc_per_cc(text):
+    def cc_per_clause(text):
+        '''
+        function to return the ratio of subordinate clauses over coordinate clauses in a text
+        :param text: the text to analyze
+        :return: the ratio of subordinate clauses to coordinate clauses
+        '''
+        sentences = list(text.sents)
+        cc_list = []
+        sc_list = []
+        for sent in sentences:
+            clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
+            cc_list.append(cclause for cclause in cclauses)
+            sc_list.append(ssclause for ssclause in sclauses)
+        return len(sc_list) / len(cc_list)
+
 def get_noun_density(text):
     '''
     function to return the ratio of nouns to the overall token count
@@ -163,7 +234,7 @@ def clause_len(text):
 
     # first iterate through list of sentences
     for sent in sentences:
-        clauses = clauseExtractor.extract_clauses(sent)
+        clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
         # update value of wpc_count
         wpc_count.append(len(clause) for clause in clauses)
     # return the average of words per clause

@@ -30,6 +30,16 @@ class Text_analysis:
         self.NPlen=0
         # Average VP length
         self.VPlen=0
+        # Subordination Ratio (Subordinate Clauses per Sentence)
+        self.sc_per_sent=0
+        # Subordination Ratio (Subordinate Clauses per total Clauses)
+        self.sc_per_clause = 0
+        # Coordination ratio (Coordinate Clauses per Sentence)
+        self.cc_per_sent=0
+        # Coordination ratio (Coordinate Clauses per total Clauses)
+        self.cc_per_clause=0
+        # Ration of Subordinate Clauses to Coordinate Clauses
+        self.sc_per_cc = 0
         # Frequency of Coordinating Conjunctions per 100 words
         self.CCfreq = 0
         # Frequency of subordinating conjunctions per 100 words
@@ -85,6 +95,11 @@ class Text_analysis:
             "Avg Sent Length": self.WPSavg,
             "Avg NP length": self.NPlen,
             "Avg VP length": self.VPlen,
+            "Subordinate Clauses per sentence": self.sc_per_sent,
+            "Subordinate Clauses per clause": self.sc_per_clause,
+            "Coordinate Clauses per sentence": self.cc_per_sent,
+            "Coordinate Clauses per clause": self.cc_per_clause,
+            "Subordinate Clauses per Coordinate Clauses": self.sc_per_cc,
             "CCfreq": self.CCfreq,
             "SCfreq": self.SCfreq,
             "Avg Clause Length": self.clauseLen,

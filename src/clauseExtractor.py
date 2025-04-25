@@ -3,12 +3,15 @@ def extract_clauses(sent):
     '''
 
     :param adoc: a processed sentence
-    :return: list of clauses in the sentence
+    :return: clauses: a list of clauses, subordinate_clauses: a list of subordinate clauses, coordinate_clauses: a list of coordinate_clauses
     '''
     root = None
     rootClause = []
     clauses = []
     clauseHeadList = []
+    coordinate_clauses = []
+    subordinate_clauses = []
+
 
     for aToken in sent:
         if aToken.dep_ == "ROOT":
@@ -20,7 +23,7 @@ def extract_clauses(sent):
     def traverse_tree(node):
         tokens = [node]
         for child in node.children:
-            if child.dep_ in ["advcl", "ccomp"]:
+            if child.dep_ in ["advcl", "ccomp", "acl", "xcomp", "relcl", "conj"]:
                 clauseHeadList.append(child)
             else:
                 tokens.extend(traverse_tree(child))
@@ -35,7 +38,7 @@ def extract_clauses(sent):
 
     for child in root.children:
         # if token in child node tagged as a clause head save in separate list to access later
-        if child.dep_ in ["advcl", "ccomp"]:
+        if child.dep_ in ["advcl", "ccomp", "acl", "xcomp", "relcl", "conj"]:
             clauseHeadList.append(child)
         # add the other nodes to the root clause
         else:
@@ -44,9 +47,14 @@ def extract_clauses(sent):
 
     # after building root clause iterate through the clause head list to also build those clauses
     for token in clauseHeadList:
-        clauses.append(clause_builder(token))
+        built_clause = clause_builder(token)
+        clauses.append(built_clause)
+        if token.dep_ in ["advcl", "ccomp", "acl", "xcomp", "relcl"]:
+            subordinate_clauses.append(built_clause)
+        elif token.dep_ == "conj":
+            coordinate_clauses.append(built_clause)
 
-    return clauses
+    return clauses, subordinate_clauses, coordinate_clauses
 
 # Extract Noun phrases from a clause returns list of noun phrases
 def extract_NPs(text):
@@ -94,12 +102,13 @@ def clause_count(sent):
     :param sent: a sentence
     :return: number of clauses in the sentence
     '''
-    return len(extract_clauses(sent))
+    clauses, sclauses, cclauses =extract_clauses(sent)
+    return len(clauses)
 
 def words_per_clause(sent):
     '''
     :param sent: a sentence
     :return: average number of words per clause in the sentence
     '''
-    clauses = extract_clauses(sent)
+    clauses, sclauses, cclauses =extract_clauses(sent)
     return sum(len(clause)for clause in clauses)/len(clauses)

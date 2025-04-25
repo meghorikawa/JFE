@@ -61,6 +61,8 @@ for participant in participant_list:
         text_obj.WPSavg = WordStats.avgWPS(doc)
         text_obj.clauseLen=WordStats.clause_len(doc)
         text_obj.clauseCount = WordStats.clauses_per_sentence(doc)
+        text_obj.NPlen = WordStats.avg_NP_length(doc)
+        text_obj.VPlen = WordStats.avg_VP_length(doc)
         text_obj.CCfreq = WordStats.ccFreq(doc)
         text_obj.SCfreq = WordStats.scFreq(doc)
         text_obj.MDD, text_obj.MHD = MDD_MHD.calculate_MDD_MHD(doc)

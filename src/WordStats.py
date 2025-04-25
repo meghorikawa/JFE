@@ -11,8 +11,12 @@ scList = []
 
 
 
-# function to return the average words per sentence in a document
 def avgWPS(text):
+    '''
+    function to return the average words per sentence in a document
+    :param text: the text to analyze
+    :return: the average WPS
+    '''
     sentences = list(text.sents)
     return sum(len(sent) for sent in sentences) / len(sentences)
 
@@ -20,12 +24,23 @@ def avgWPS(text):
 # function to return the Corrected Type Token Ratio (number of unique words used per text)
 # # of tokens over the squ. root of 2* # of words in text.
 def cttr(text):
+    '''
+    function to return the Corrected Type Token Ratio (number of unique words used per text)
+    # of tokens over the squ. root of 2* # of words in text.
+    :param text: to analyze
+    :return: the CTTR
+    '''
     # get unique list of words using helper method
     return len(get_uniqueWords(text)) / (math.sqrt(2 * len(text)))
 
 
-# function to return a normalized count per 100 words of subordinating conjunctions
+
 def scFreq(text):
+    '''
+    function to return a normalized count per 100 words of subordinating conjunctions
+    :param text:
+    :return: normalized count per 100 words of subordinating conjunctions
+    '''
     sentences = list(text.sents)
     scCounter = 0
     wordCount = 0
@@ -41,8 +56,12 @@ def scFreq(text):
     return (scCounter / wordCount) * 100
 
 
-# function to return a normalized count per 100 words of coordinating conjunctions
 def ccFreq(text):
+    '''
+    function to return a normalized count per 100 words of subordinating conjunctions
+    :param text: the text to analyze
+    :return: normalized count per 100 words of coordinating conjunctions
+    '''
     sentences = list(text.sents)
     ccCounter = 0
     wordCount = 0
@@ -58,6 +77,11 @@ def ccFreq(text):
     return (ccCounter / wordCount) * 100
 
 def get_noun_density(text):
+    '''
+    function to return the ratio of nouns to the overall token count
+    :param text: the text to analyze
+    :return: the ratio of nouns to the overall token count
+    '''
     # remove punctuation
     filtered_tokens = [token for token in text if not token.is_punct]
 
@@ -66,7 +90,13 @@ def get_noun_density(text):
     total_tokens = len(text)
 
     return total_nouns / total_tokens
+
 def get_verb_density(text):
+    '''
+    function to return the ratio of verbs to the overall token count
+    :param text: the text to analyze
+    :return: the ratio of verbs to the overall token count
+    '''
     # remove punctuation
     filtered_tokens = [token for token in text if not token.is_punct]
 
@@ -77,6 +107,11 @@ def get_verb_density(text):
     return total_nouns / total_tokens
 
 def get_adj_density(text):
+    '''
+    function to return the ratio of adjectives to the overall token count
+    :param text: the text to analyze
+    :return: the ratio of adjectives to the overall token count
+    '''
     # remove punctuation
     filtered_tokens = [token for token in text if not token.is_punct]
 
@@ -86,6 +121,11 @@ def get_adj_density(text):
 
     return total_nouns / total_tokens
 def get_adv_density(text):
+    '''
+    function to return the ratio of adverbs to the overall token count
+    :param text: the text to analyze
+    :return: the ratio of adverbs to the overall token count
+    '''
     # remove punctuation
     filtered_tokens = [token for token in text if not token.is_punct]
 
@@ -95,41 +135,67 @@ def get_adv_density(text):
 
     return total_nouns / total_tokens
 
-
-
-# function to return the average count of words per clause
+def avg_NP_length(text):
+    '''
+    function to return the average length of NP in a text
+    :param text: the text to analyze
+    :return: the average length of NP
+    '''
+    NP_list = clauseExtractor.extract_NPs(text)
+    return sum(len(NP)for NP in NP_list) / len(NP_list)
+def avg_VP_length(text):
+    '''
+    function to return the average length of VP in a text
+    :param text: the text to analyze
+    :return: the average length of VP
+    '''
+    VP_list = clauseExtractor.extract_VPs(text)
+    return sum(len(VP) for VP in VP_list) / len(VP_list)
 def clause_len(text):
+    '''
+    function to return the average count of words per clause
+    :param text: the text to analyze
+    :return: the average count of words per clause
+    '''
     sentences = list(text.sents)
     # instantiate a list to track each clauses' length
-    wpcSum = []
+    wpc_count = []
 
     # first iterate through list of sentences
     for sent in sentences:
-        clauseExtractor.extract_clauses(sent)
-        # update value of sum
-        wpcSum.append(clauseExtractor.wordsp_clause())
-        # need to clear after each iteration
-        clauseExtractor.clear()
+        clauses = clauseExtractor.extract_clauses(sent)
+        # update value of wpc_count
+        wpc_count.append(len(clause) for clause in clauses)
     # return the average of words per clause
-    return sum(wpcSum) / len(wpcSum)
+    return sum(wpc_count) / len(wpc_count)
 
 
-# function to return the average count of clauses per sentence
 def clauses_per_sentence(text):
+    '''
+    function to return the average count of clauses per sentence
+    :param text: the text to analyze
+    :return: the average count of clauses per sentence
+    '''
     sentences = list(text.sents)
     clauseCountList = []
-    for sent in sentences:
-        clauseExtractor.extract_clauses(sent)
-        clauseCountList.append(clauseExtractor.clause_count())
-        # need to clear data after each iteration
-        clauseExtractor.clear()
+    clauseCountList.append(clauseExtractor.clause_count(sent) for sent in sentences)
     return sum(clauseCountList) / len(sentences)
 
 def get_docLen(text):
+    '''
+    function to return the raw document length
+    :param text: the text to analyze
+    :return: the raw document length
+    '''
     return len(text)
 
-# helper method to create a list of unique words in the text
+
 def get_uniqueWords(text):
+    '''
+    function to return the unique words in a text
+    :param text: the text to analyze
+    :return: the number of unique words in a text
+    '''
     seen = set()
     uniqueWord = []
     for token in text:

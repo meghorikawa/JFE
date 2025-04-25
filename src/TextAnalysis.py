@@ -29,6 +29,10 @@ class Text_analysis:
         self.text_len = 0
         # Average sent length (words per sentence)
         self.WPSavg = 0
+        # Average NP length
+        self.NPlen=0
+        # Average VP length
+        self.VPlen=0
         # Frequency of Coordinating Conjunctions per 100 words
         self.CCfreq = 0
         # Frequency of subordinating conjunctions per 100 words
@@ -80,12 +84,14 @@ class Text_analysis:
             "JCATscore": self.score,
             "lang": self.lang,
             "JLPT": self.JLPT,
-            "Avg Sent Length": self.text_len,
-            "Sentence Length": self.WPSavg,
+            "Text Length": self.text_len,
+            "Avg Sent Length": self.WPSavg,
+            "Avg NP length": self.NPlen,
+            "Avg VP length": self.VPlen,
             "CCfreq": self.CCfreq,
             "SCfreq": self.SCfreq,
             "Avg Clause Length": self.clauseLen,
-            "ClauseCount": self.clauseCount,
+            "Avg Clause per Sent": self.clauseCount,
             "MDD": self.MDD,
             "MHD": self.MHD,
             "CTTR": self.CTTR,

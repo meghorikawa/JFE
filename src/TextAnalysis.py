@@ -17,7 +17,7 @@ class Text_analysis:
         self.text_name = text_name
         # J-cat score
         self.score = score
-        # Estimated JLPT level
+        # JLPT level
         self.JLPT = JLPT
 
         # complexity measures and frequency data

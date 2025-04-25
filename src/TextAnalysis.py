@@ -1,9 +1,6 @@
-''' a class to handle the texts, it should log to different measures, and the stats of the participant
-native language - taken from participant list
-proficency level - taken from participant meta data list
-
-
-
+'''
+a class to handle the texts, it should log the different measures,
+and the metadata of the participant
 '''
 
 class Text_analysis:

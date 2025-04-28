@@ -236,7 +236,7 @@ def clause_len(text):
     for sent in sentences:
         clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
         # update value of wpc_count
-        wpc_count.append(len(clause) for clause in clauses)
+        wpc_count.extend(len(clause) for clause in clauses)
     # return the average of words per clause
     return sum(wpc_count) / len(wpc_count)
 

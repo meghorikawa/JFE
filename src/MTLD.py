@@ -7,11 +7,12 @@ import spacy
 
 ttr_threshold = 0.72
 
-def mtld_calc(tokenized_text, ttr_threshold):
+def mtld_calc(tokenized_text, ttr_threshold, mode):
     '''
 
     :param tokenized_text: the tokenized text
-    :param ttr_threshold:
+    :param ttr_threshold: the threshold of ttr set at .72
+    :param mode: the mode of mtld calculation, "lemma" or "surface" level
     :return:
     '''
     current_ttr = 1.0
@@ -23,10 +24,15 @@ def mtld_calc(tokenized_text, ttr_threshold):
     clean_text = remove_punctuation(tokenized_text)
     for token in clean_text:
         token_count += 1
-        token_text = token.text
+        if mode =="surface":
+            token_text = token.text
+        elif mode =="lemma":
+            token_text = token.lemma_
+
         if token_text not in types:
             types.add(token_text)
             type_count += 1
+
         current_ttr = type_count / token_count
         #print(f"Token: {token.text}, TTR: {current_ttr:.2f}")
         if current_ttr <= ttr_threshold:
@@ -44,13 +50,13 @@ def mtld_calc(tokenized_text, ttr_threshold):
         return len(tokenized_text) / factors
     return -1
 
-def mtld (tokenized_text):
+def mtld (tokenized_text, mode):
     if isinstance(tokenized_text, str):
         raise ValueError("Input should be tokenized text")
     if len(tokenized_text)< 50:
         #raise ValueError("Input should be at least 50 tokens")
         return "tooshort"
-    return mtld_calc(tokenized_text, ttr_threshold)
+    return mtld_calc(tokenized_text, ttr_threshold, mode)
 
 def remove_punctuation(text):
     """

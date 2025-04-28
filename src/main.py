@@ -11,6 +11,7 @@ import pipeline
 import pandas as pd
 import TextAnalysis
 import WordStats
+import JRMA
 
 #load spacy model
 nlp = spacy.load('ja_ginza')
@@ -85,7 +86,7 @@ for participant in participant_list:
         text_obj.LFP_oov_list = oov_list
 
         # MTLD
-        text_obj.MTLD = MTLD.mtld(doc)
+        text_obj.MTLD = MTLD.mtld(doc, 'surface')
         #CTTR
         text_obj.CTTR = WordStats.cttr(doc)
 
@@ -94,6 +95,9 @@ for participant in participant_list:
         text_obj.mci_10_surface = MCI.MCI(doc, 10, 100, 'surface')
         text_obj.mci_5_inflection = MCI.MCI(doc, 5, 100, 'inflection')
         text_obj.mci_10_inflection = MCI.MCI(doc, 10, 100, 'inflection')
+
+        (text_obj.JRMA_all_MTLD, text_obj.JRMA_content_MTLD, text_obj.JRMA_function_MTLD, text_obj.JRMA_all_MATTR,
+         text_obj.JRMA_content_MATTR, text_obj.JRMA_function_MATTR) = JRMA.calculate_JRMA_scores(doc)
 
 
         # add the text analysis object to text lists

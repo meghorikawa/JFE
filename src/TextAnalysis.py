@@ -75,6 +75,12 @@ class Text_analysis:
         self.MCI_10_surface = 0
         self.MCI_5_inflection = 0
         self.MCI_10_inflection = 0
+        self.JRMA_all_MTLD = 0
+        self.JRMA_content_MTLD = 0
+        self.JRMA_function_MTLD = 0
+        self.JRMA_all_MATTR = 0
+        self.JRMA_content_MATTR = 0
+        self.JRMA_function_MATTR = 0
 
         # Criterial Features
         self.pattern_matches = {} # refine this later to have a flat list for each feature
@@ -116,6 +122,12 @@ class Text_analysis:
             "MCI_10_Surface": self.MCI_10_surface,
             "MCI_5_Inflection": self.MCI_5_inflection,
             "MCI_10_Inflection": self.MCI_10_inflection,
+            "JRMA_all_MTLD": self.JRMA_all_MTLD,
+            "JRMA_content_MTLD": self.JRMA_content_MTLD,
+            "JRMA_function_MTLD": self.JRMA_function_MTLD,
+            "JRMA_all_MATTR": self.JRMA_all_MATTR,
+            "JRMA_content_MATTR": self.JRMA_content_MATTR,
+            "JRMA_function_MATTR": self.JRMA_function_MATTR,
             "LFP_total_tokens": self.LFP_total_tokens,
             #"LFP_OOV_List": ", ".join(self.LFP_oov_list)  # Convert list to string
     }

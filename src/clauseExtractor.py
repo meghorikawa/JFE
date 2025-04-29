@@ -63,9 +63,9 @@ def extract_NPs(text):
     :param text: the text to analyze
     :return: a list of NPs in the text
     '''
-    clause_list = extract_clauses(text)
+    clauses, subordinate_clauses, coordinate_clauses = extract_clauses(text)
     NP_list = []
-    for clause in clause_list:
+    for clause in clauses:
         for token in clause:
             if token.pos_ in ["NOUN", "PROPN", "PRON"]:
                 np = [token]
@@ -73,7 +73,7 @@ def extract_NPs(text):
                     if child.dep_ in ["amod", "det", "nmod", "compound", "case"]:
                         np.append(child)
                 np = sorted(np, key=lambda x: x.i) # keep original order of tokens
-                NP_list.append("".join([t.text for t in np]))
+                NP_list.append(np)
     return NP_list
 
 # extract verb phrases
@@ -83,9 +83,9 @@ def extract_VPs(text):
     :param text: the text to analyze
     :return: list of VPs in the text
     '''
-    clause_list = extract_clauses(text)
+    clauses, subordinate_clauses, coordinate_clauses = extract_clauses(text)
     VP_list = []
-    for clause in clause_list:
+    for clause in clauses:
         for token in clause:
             if token.pos_ in ["VERB", "AUX"]:
                 vp = [token]
@@ -93,7 +93,7 @@ def extract_VPs(text):
                     if child.dep_ in ["aux", "advmod", "mark", "compound"]:
                         vp.append(child)
                 vp = sorted(vp, key=lambda x: x.i)
-                VP_list.append("".join([vp.pop()]))
+                VP_list.append(vp)
     return VP_list
 
 

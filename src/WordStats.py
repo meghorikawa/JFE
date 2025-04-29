@@ -79,14 +79,14 @@ def ccFreq(text):
 def sc_per_sentence(text):
     '''
     function to return the number of subordinate clauses per sentence in a document
-    :param text: the text to analyze
+    :param text: the text to analyze already processed by ginza
     :return: the ratio of subordinate clauses per sentence
     '''
     sentences = list(text.sents)
     sc_list = []
     for sent in sentences:
         clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
-        sc_list.append(sclause for sclause in sclauses)
+        sc_list.append(len(sclauses))
     return sum(sc_list) / len(sentences)
 def sc_per_clause(text):
     '''
@@ -99,7 +99,7 @@ def sc_per_clause(text):
     clause_count = []
     for sent in sentences:
         clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
-        sc_list.append(sclause for sclause in sclauses)
+        sc_list.append(len(sclauses))
         clause_count.append(len(clauses))
     return sum(sc_list) / sum(clause_count)
 
@@ -113,7 +113,7 @@ def cc_per_sentence(text):
     cc_list = []
     for sent in sentences:
         clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
-        cc_list.append(cclause for cclause in cclauses)
+        cc_list.append(len(cclauses))
     return sum(cc_list) / len(sentences)
 
 def cc_per_clause(text):
@@ -127,7 +127,7 @@ def cc_per_clause(text):
     clause_count = []
     for sent in sentences:
         clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
-        cc_list.append(cclause for cclause in cclauses)
+        cc_list.append(len(cclauses))
         clause_count.append(len(clauses))
     return sum(cc_list) / sum(clause_count)
 
@@ -143,8 +143,8 @@ def sc_per_cc(text):
         sc_list = []
         for sent in sentences:
             clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
-            cc_list.append(cclause for cclause in cclauses)
-            sc_list.append(ssclause for ssclause in sclauses)
+            cc_list.append(len(cclauses))
+            sc_list.append(len(sclauses))
         return len(sc_list) / len(cc_list)
 
 def get_noun_density(text):
@@ -213,6 +213,8 @@ def avg_NP_length(text):
     :return: the average length of NP
     '''
     NP_list = clauseExtractor.extract_NPs(text)
+    if not NP_list:
+        return 0
     return sum(len(NP)for NP in NP_list) / len(NP_list)
 def avg_VP_length(text):
     '''
@@ -221,6 +223,8 @@ def avg_VP_length(text):
     :return: the average length of VP
     '''
     VP_list = clauseExtractor.extract_VPs(text)
+    if not VP_list:
+        return 0
     return sum(len(VP) for VP in VP_list) / len(VP_list)
 def clause_len(text):
     '''
@@ -249,7 +253,7 @@ def clauses_per_sentence(text):
     '''
     sentences = list(text.sents)
     clauseCountList = []
-    clauseCountList.append(clauseExtractor.clause_count(sent) for sent in sentences)
+    clauseCountList.extend(clauseExtractor.clause_count(sent) for sent in sentences)
     return sum(clauseCountList) / len(sentences)
 
 def get_docLen(text):

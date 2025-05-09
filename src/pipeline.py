@@ -25,12 +25,12 @@ def preprocess(text):
         }
         for token in sent:
             # get reading of token
-            print(token.morph)
-            reading = token.morph.get("Reading")[0]
+            #print(token.morph)
+            #reading = token.morph.get("Reading")[0]
             token_data = {
                 "id":token.i +1,
                 "orth":token.text, # the actual written token
-                "reading": reading, # pronunciation this however only returns most common and not necessarily based
+                #"reading": reading, # pronunciation this however only returns most common and not necessarily based
                 # on context.....
                 "lemma":token.lemma_, # lemma (dictionary form)
                 "pos": token.pos_,

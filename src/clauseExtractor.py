@@ -48,14 +48,34 @@ def extract_clauses(sent):
     # after building root clause iterate through the clause head list to also build those clauses
     for token in clauseHeadList:
         built_clause = clause_builder(token)
-        clauses.append(built_clause)
-        if token.dep_ in ["advcl", "ccomp", "acl", "xcomp", "relcl"]:
-            subordinate_clauses.append(built_clause)
-        elif token.dep_ == "conj":
-            coordinate_clauses.append(built_clause)
+        if built_clause:
+            clauses.append(built_clause) # add the clause to the list
+        # now need to seperate the subordinate and coordinate clauses.
+
+    for clause in clauses:
+        if is_coordinate_clause(clause):
+            coordinate_clauses.append(clause)
+        elif any(tok.pos_ == "SCONJ" for tok in clause):
+            subordinate_clauses.append(clause)
 
     return clauses, subordinate_clauses, coordinate_clauses
 
+# method to return a true or false boolean for if a clause is a coordinate clause
+def is_coordinate_clause(clause):
+        '''
+        a function to check if a clause is a coordinate clause
+        :param clause: a clause
+        :return: a boolean indicating if clause is coordinate
+        '''
+        # list of likely cconj
+        coordinating_conjunctions = ["て", "で", "し", "そして", "それに", "それから"] # need to account for が...
+        conj_tokens = [tok for tok in clause if tok.text in coordinating_conjunctions and tok.pos_ in ["SCONJ",
+                                                                                                       "CCONJ"]]
+        verbs = [tok for tok in clause if tok.pos_ in ["VERB", "AUX"]]
+        if len(conj_tokens) >0 and len(verbs) >= 1:
+            return True
+        else:
+            return False
 # Extract Noun phrases from a clause returns list of noun phrases
 def extract_NPs(text):
     '''

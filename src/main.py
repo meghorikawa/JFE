@@ -92,9 +92,13 @@ for participant in participant_list:
 
         # morphological Complexity index
         text_obj.mci_5_surface = MCI.MCI(doc, 5, 100, 'surface')
+        print(f"MCI5-Surface = {text_obj.mci_5_surface}")
         text_obj.mci_10_surface = MCI.MCI(doc, 10, 100, 'surface')
+        print(f"MCI10-Surface = {text_obj.mci_10_surface}")
         text_obj.mci_5_inflection = MCI.MCI(doc, 5, 100, 'inflection')
+        print(f"MCI5-inflection = {text_obj.mci_5_inflection}")
         text_obj.mci_10_inflection = MCI.MCI(doc, 10, 100, 'inflection')
+        print(f"MCI10-inflection = {text_obj.mci_10_inflection}")
 
         (text_obj.JRMA_all_MTLD, text_obj.JRMA_content_MTLD, text_obj.JRMA_function_MTLD, text_obj.JRMA_all_MATTR,
          text_obj.JRMA_content_MATTR, text_obj.JRMA_function_MATTR) = JRMA.calculate_JRMA_scores(doc)

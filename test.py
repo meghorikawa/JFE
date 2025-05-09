@@ -5,9 +5,9 @@ import json
 import src.clauseExtractor
 import spacy
 
-text = ('''昨日、図書館に行ってレポートを書きました。
-そして、友達と映画を見て、その後、食事をしました。
-私が映画を見たことを覚えていると言いましたが、まだ食事に行っていません。歩きながら、食べるな！
+text = ('''ご注文は以上ですか？
+６歳以上の子どもはがっこうに通わなければならない。
+私からは以上でございます。
 ''')
 processed_text = pipeline.preprocess(text)
 

@@ -21,7 +21,7 @@ def match_ijyou_N4(nlp, doc):
     patterns = [
         [  # general pattern
             {"pos": "NOUN", "lemma": {"IN": ["いじょう", "以上"]}},
-            {"pos": {"NOT_IN": ["ADP"]}, "lemma": {"NOT_IN":["に"]}}
+            {"lemma": {"NOT_IN":["に"]}}
           ],
     ]
 

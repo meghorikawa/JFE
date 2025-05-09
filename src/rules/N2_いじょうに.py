@@ -23,8 +23,10 @@ def match_ijyouni_N2(nlp, doc):
 
     patterns = [
         [  # general pattern
+            {},
             {"pos": "NOUN", "lemma": {"IN": ["いじょう", "以上"]}},
-            {"pos": "ADP", "lemma": "に"}
+            {"pos": "ADP", "lemma": "に"},
+            {}
           ],
     ]
 

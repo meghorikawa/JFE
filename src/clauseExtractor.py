@@ -68,7 +68,7 @@ def is_coordinate_clause(clause):
         :return: a boolean indicating if clause is coordinate
         '''
         # list of likely cconj
-        coordinating_conjunctions = ["て", "で", "し", "そして", "それに", "それから"] # need to account for が...
+        coordinating_conjunctions = ["て", "で", "し", "そして", "それに", "それから","または", "し", "と"] # need to account for が...
         conj_tokens = [tok for tok in clause if tok.text in coordinating_conjunctions and tok.pos_ in ["SCONJ",
                                                                                                        "CCONJ"]]
         verbs = [tok for tok in clause if tok.pos_ in ["VERB", "AUX"]]

@@ -28,7 +28,12 @@ def match_enai_N2(nlp, doc):
             {"pos": {"IN": ["VERB", "AUX"]}},
             {"pos": "VERB", "lemma": {"IN": ["得る", "える"]}},
             {"pos": "AUX", "lemma": "ない"},
-          ],
+          ], [  # polite form pattern
+            {"pos": {"IN": ["VERB", "AUX"]}},
+            {"pos": "VERB", "lemma": {"IN": ["得る", "える"]}},
+            {"pos": "AUX", "lemma": "ます"},
+            {"pos": "AUX", "lemma": "ぬ"},
+          ]
     ]
 
     matcher.add("enai", patterns)

@@ -6,9 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-地震がいつ来るかなんて、予測し得ないことだ。
-機械は完全には人力に代わり得ない。
-このような困難な仕事は、我々の力だけでは処理し得ない。
+地震が起きるなんて、あり得ません。
 ''')
 processed_text = pipeline.preprocess(text)
 

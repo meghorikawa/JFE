@@ -6,7 +6,10 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-地震が起きるなんて、あり得ません。
+しばらくお待ち願います。
+図書館では小さな声でお話し願います。
+ご提案の詳細についてお聞かせ願えますか？
+ご自分のシートベルトが安全にかかっているかお確かめ願います。
 ''')
 processed_text = pipeline.preprocess(text)
 

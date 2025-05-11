@@ -16,7 +16,7 @@ Level: N2
 '''
 
 
-def match_enai_N2(nlp, doc):
+def match_onegau_N2(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
@@ -28,7 +28,7 @@ def match_enai_N2(nlp, doc):
           ],
     ]
 
-    matcher.add("enai", patterns)
+    matcher.add("onegau", patterns)
     matches = matcher(doc)
 
     # Count occurrences

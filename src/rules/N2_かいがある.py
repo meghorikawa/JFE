@@ -39,9 +39,9 @@ def match_kaigaru_N2(nlp, doc):
             {"pos": "NOUN", "lemma": {"IN": ["かい", "がい", "甲斐"]}},
             {"pos": "ADP", "lemma": "が"},
             {"pos": "VERB", "lemma": "ある"}
-          ], # need a case for やり甲斐,働き甲斐　- it is considered one word.
+          ], # need a case for やり甲斐, 働き甲斐　- they are considered one word.
         [
-            {"pos": "NOUN", "lemma": {"IN": ["働き甲斐","やり甲斐","生き甲斐"]}},
+            {"pos": "NOUN", "text": {"REGEX": ".+甲斐$"}},
             {"pos": "ADP", "lemma": "が"},
             {"pos": "VERB", "lemma": "ある"}
         ]

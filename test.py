@@ -6,9 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-毎日ダイエットを頑張った甲斐があって、５キロ痩せることができました。
-お客さんに喜んでもらえると、この仕事は、やり甲斐があると思う。
-毎日つまらない仕事ばかりしている。もっと働き甲斐がある会社に転職したい。
+学生である限り、学割が使えます。
 ''')
 processed_text = pipeline.preprocess(text)
 

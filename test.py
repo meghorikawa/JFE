@@ -6,7 +6,10 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-学生である限り、学割が使えます。
+寒い日は、熱いラーメンに限る。
+風邪には寝ているに限る。
+何といっても我が家に限る。
+夏は冷たいビールに限る。
 ''')
 processed_text = pipeline.preprocess(text)
 

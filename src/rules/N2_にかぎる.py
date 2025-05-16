@@ -21,14 +21,12 @@ def match_nikaigiru_N2(nlp, doc):
     patterns = [
         [  # general pattern with verb
             {"pos": "VERB"},
-            {"POS": {"IN": ["AUX", "SCONJ", "VERB"]}, "OP": "*"}, #allow for auxilaries to be added
             {"pos": "ADP", "lemma": "に"},
-            {"pos": "VERB", "lemma": {"IN": ["かぎる", "限る"]}},
-            {"pos":"SCONJ", "lemma": {"NOT_IN": ["て"]}}
+            {"pos": "VERB", "text": {"IN": ["かぎる", "限る","限り", "かぎり"]}},
           ],[  # pattern with noun
             {"pos": "NOUN"},
             {"pos": "ADP", "lemma": "に"},  # add optional argument for て form
-            {"pos": "VERB", "lemma": {"IN": ["かぎる", "限る"]}},
+            {"pos": "VERB", "text": {"IN": ["かぎる", "限る","限り", "かぎり"]}},
           ],
     ]
 

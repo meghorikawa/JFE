@@ -7,6 +7,7 @@ import spacy
 
 text = ('''
 地球を守るために、プラスチック製品を減らさねばならなりません。
+ビザが切れたので、国に帰らねばならない。
 ''')
 processed_text = pipeline.preprocess(text)
 

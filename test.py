@@ -6,8 +6,9 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-地球を守るために、プラスチック製品を減らさねばならなりません。
-ビザが切れたので、国に帰らねばならない。
+僕の成績から言えば、国立大学は無理だと思う。
+能力から言って、彼がこの仕事に一番適切だと思います。
+僕の経験から言うと、留学をする前に基本的な文法や単語は復習しておいた方がいい。
 ''')
 processed_text = pipeline.preprocess(text)
 

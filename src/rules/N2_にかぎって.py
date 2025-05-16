@@ -15,7 +15,7 @@ Level: N2
 '''
 
 
-def match_nikaigitte_N2(nlp, doc):
+def match_nikagitte_N2(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [

@@ -17,7 +17,7 @@ Noun + に限らず
 '''
 
 
-def match_nikaigitte_N2(nlp, doc):
+def match_nikagirazu_N2(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
@@ -29,7 +29,7 @@ def match_nikaigitte_N2(nlp, doc):
           ],
     ]
 
-    matcher.add("nikagitte", patterns)
+    matcher.add("nikagirazu", patterns)
     matches = matcher(doc)
 
     # Count occurrences

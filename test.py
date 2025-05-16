@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-最近は、女性に限らず男性も化粧をする。
+地球を守るために、プラスチック製品を減らさねばならなりません。
 ''')
 processed_text = pipeline.preprocess(text)
 

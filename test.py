@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-歩こうか, それとも車で行こうか？
+それにしてもあなたは絵が上手ですね。
 ''')
 processed_text = pipeline.preprocess(text)
 

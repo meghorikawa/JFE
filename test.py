@@ -6,10 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-その上、そのレストランは私たちのホテルからとても近い。
-この靴の値段は高い、その上デザインも良くない。
-今日は暑いです。その上湿度も高い。
-この仕事は面白いし、その上給料がいいのです。
+歩こうか, それとも車で行こうか？
 ''')
 processed_text = pipeline.preprocess(text)
 

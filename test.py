@@ -6,8 +6,10 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-我々が成功できるかどうかは君次第だ。
-雨がやみ次第、出発することにしましょう。
+その上、そのレストランは私たちのホテルからとても近い。
+この靴の値段は高い、その上デザインも良くない。
+今日は暑いです。その上湿度も高い。
+この仕事は面白いし、その上給料がいいのです。
 ''')
 processed_text = pipeline.preprocess(text)
 

@@ -6,7 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-さらに、食後にケーキも食べた。
+この教科書の説明はわかりやすくて、しかも詳しい 。
+今日はとても暑い。しかも、湿度も高いので何もしたくないだ。
 ''')
 processed_text = pipeline.preprocess(text)
 

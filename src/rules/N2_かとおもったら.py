@@ -28,7 +28,7 @@ def match_katoomottara_N2(nlp, doc):
             {"pos": "AUX", "lemma": "た"},
             {"pos": {"IN": ["PART","SCONJ"]}, "lemma": "か"},
             {"pos": "ADP", "lemma": "と"},
-            {"pos": {"IN": ["VERB", "SCONJ"]}, "lemma": {["思う","おもう"]}},  # add optional argument for て form
+            {"pos": {"IN": ["VERB", "SCONJ"]}, "lemma": {"IN": ["思う","おもう"]}},  # add optional argument for て form
             {"orth": {"IN": ["たら","と", "ば"]}},
         ],
     ]

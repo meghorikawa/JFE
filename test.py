@@ -6,9 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼は時々車を運転しつつ、電話をする。
-彼は忙しいと言いつつ、長電話をしている。
-最近はゴルフをしていないので、下手になりつつあります。
+彼はそれをどんなつもりで言ったのだと思いますか。
 ''')
 processed_text = pipeline.preprocess(text)
 

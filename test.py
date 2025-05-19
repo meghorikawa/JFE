@@ -6,9 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-僕の成績から言えば、国立大学は無理だと思う。
-能力から言って、彼がこの仕事に一番適切だと思います。
-僕の経験から言うと、留学をする前に基本的な文法や単語は復習しておいた方がいい。
+日曜日なのに、お父さんは忙しそうだね。さっき戻ったかと思うと、また出かけて行った。
 ''')
 processed_text = pipeline.preprocess(text)
 

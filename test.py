@@ -6,8 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-この教科書の説明はわかりやすくて、しかも詳しい 。
-今日はとても暑い。しかも、湿度も高いので何もしたくないだ。
+我々が成功できるかどうかは君次第だ。
+雨がやみ次第、出発することにしましょう。
 ''')
 processed_text = pipeline.preprocess(text)
 

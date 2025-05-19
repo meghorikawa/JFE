@@ -6,7 +6,10 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-その新社員は顔つきからして優しそうだ。
+彼の症状からすると、心臓の病気かもしれません。
+今度のJLPTですが、今の皆さんの実力からすると問題なく合格できるでしょう。
+ラーメンを食べる時に音を出す習慣は外国人からすると、考えられないことだそうです。
+親からすれば、子供はいくつになっても子供で心配なものだ。
 ''')
 processed_text = pipeline.preprocess(text)
 

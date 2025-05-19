@@ -6,7 +6,9 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼は知識だけではなく、経験も豊かである。
+彼は時々車を運転しつつ、電話をする。
+彼は忙しいと言いつつ、長電話をしている。
+最近はゴルフをしていないので、下手になりつつあります。
 ''')
 processed_text = pipeline.preprocess(text)
 

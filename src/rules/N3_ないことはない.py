@@ -33,7 +33,7 @@ def match_naikotohanai_N3(nlp, doc):
             {"pos": {"IN": ["ADJ", "AUX"]}, "lemma": "ない"},
             {"pos": "NOUN", "orth":{"IN":["こと", "事"]}},
             {"pos": "ADP", "lemma": "は"},
-            {"pos": {"IN": ["AUX","VERB"]}, "lemma": "ない"},
+            {"pos": {"IN": ["AUX","VERB"]}, "lemma": {"IN": ["ある","ない"]}},
 
         ],[ #adj pattern
             {"pos": "ADJ"},

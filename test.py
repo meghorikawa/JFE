@@ -6,7 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼はそれをどんなつもりで言ったのだと思いますか。
+もし薬で治らなかったら、手術でしかない。
+夢は夢でしかない。
 ''')
 processed_text = pipeline.preprocess(text)
 

@@ -6,8 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-試験の前だから、勉強しないではいられない。
-態度悪いの店員に、一言文句を言わないではいられない。
+とても寒く、なお悪いことに、雨が降り始めた。
+かなり多くの人々が今なおそれを信じている。
 ''')
 processed_text = pipeline.preprocess(text)
 

@@ -6,8 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-マンションの近くに電車が走っているから、うるさくて当たり前だ。
-みんなに嫌われて当然だ。
+元気ではいられない。
+やると決めたら、のんびりしてはいられない。
 ''')
 processed_text = pipeline.preprocess(text)
 

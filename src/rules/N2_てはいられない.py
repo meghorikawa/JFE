@@ -31,7 +31,7 @@ def match_tehairarenai_N2(nlp, doc):
 
     patterns = [
         [  # general pattern for verb
-            {"pos": {"IN": ["AUX", "VERB"]}},
+            {"pos": {"IN": ["AUX", "VERB"]}, "orth":{"NOT_IN":["ない"]}},
             {"pos": "SCONJ", "orth":{"IN": ["て","で"]}},
             {"pos": "ADP", "lemma": "は"},
             {"pos": "VERB", "lemma": "いる"},

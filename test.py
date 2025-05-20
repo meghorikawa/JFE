@@ -6,8 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-元気ではいられない。
-やると決めたら、のんびりしてはいられない。
+できないこともないですけど、少し時間をいただきたいです。
+私も留学したことがありますから、あなたの苦労が分からないことはありません。
 ''')
 processed_text = pipeline.preprocess(text)
 

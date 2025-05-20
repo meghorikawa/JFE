@@ -6,7 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-日本の夏は暑すぎてたまらない。
+マンションの近くに電車が走っているから、うるさくて当たり前だ。
+みんなに嫌われて当然だ。
 ''')
 processed_text = pipeline.preprocess(text)
 

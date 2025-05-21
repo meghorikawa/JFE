@@ -6,8 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-とても寒く、なお悪いことに、雨が降り始めた。
-かなり多くの人々が今なおそれを信じている。
+絶対合格するに決まっている。
 ''')
 processed_text = pipeline.preprocess(text)
 

@@ -6,8 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-このバスは距離にかかわらず、どこまで行っても200円だ。
-お酒を飲む飲まないに関わらず、飲み会の参加費は3,000円です。
+私はこの会社の一社員にすぎませんから、決定権はありません。
 ''')
 processed_text = pipeline.preprocess(text)
 

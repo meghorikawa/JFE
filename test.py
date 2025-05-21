@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-私はこの会社の一社員にすぎませんから、決定権はありません。
+私は長年の経験に基づき新入社員を教育する。
 ''')
 processed_text = pipeline.preprocess(text)
 

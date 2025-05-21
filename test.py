@@ -6,7 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-絶対合格するに決まっている。
+このバスは距離にかかわらず、どこまで行っても200円だ。
+お酒を飲む飲まないに関わらず、飲み会の参加費は3,000円です。
 ''')
 processed_text = pipeline.preprocess(text)
 

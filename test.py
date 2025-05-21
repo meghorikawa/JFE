@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-大学生にも関わらず、基本的な漢字が書けない人もいる。
+果たしてそうだろう。
 ''')
 processed_text = pipeline.preprocess(text)
 

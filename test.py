@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-お母さんは優しい一方で、お父さんはこわい。
+彼はあえて一人で行く気ですか。
 ''')
 processed_text = pipeline.preprocess(text)
 

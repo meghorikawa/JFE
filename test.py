@@ -6,8 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-誰にでも好みというものはあります。
-人間には理性というものがある。
+遅くなってごめんなさい。道路が混んでいたもんだから。
 ''')
 processed_text = pipeline.preprocess(text)
 

@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼女はいかなる困難にであっても、気を落とすことはない。
+悩み出したら切りがないので、途中で吹っ切れることも重要だ。
 ''')
 processed_text = pipeline.preprocess(text)
 

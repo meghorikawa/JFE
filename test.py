@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-やがて真っ暗になった
+カバンにはパソコンやらノートやら教科書やらが入っている。
 ''')
 processed_text = pipeline.preprocess(text)
 

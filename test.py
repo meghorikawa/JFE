@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-全員が参加しなければなりません。もっとも病気の場合は別です。
+彼女は服が汚れるのもかまわず、公園で犬と遊んでいる。
 ''')
 processed_text = pipeline.preprocess(text)
 

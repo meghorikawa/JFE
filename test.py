@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-優勝できたのは、チーム全員の協力あればこそだ。
+彼はどうにも身の置き場がないような様子だ。
 ''')
 processed_text = pipeline.preprocess(text)
 

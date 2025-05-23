@@ -6,7 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-カバンにはパソコンやらノートやら教科書やらが入っている。
+この仕事は君に信頼するよりほかはない。
+頼れる人はいないから、自分がやるよりほか仕方がない。
 ''')
 processed_text = pipeline.preprocess(text)
 

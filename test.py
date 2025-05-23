@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼はあえて一人で行く気ですか。
+案の定、結果がよくないだ。
 ''')
 processed_text = pipeline.preprocess(text)
 

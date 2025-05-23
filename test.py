@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-秋であるものの、まだ暑い。
+やがて真っ暗になった
 ''')
 processed_text = pipeline.preprocess(text)
 

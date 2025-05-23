@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼はどうにも身の置き場がないような様子だ。
+あなたと結婚するくらいなら、独身のほうがましです。
 ''')
 processed_text = pipeline.preprocess(text)
 

@@ -6,8 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-この仕事は君に信頼するよりほかはない。
-頼れる人はいないから、自分がやるよりほか仕方がない。
+お母さんは優しい一方で、お父さんはこわい。
 ''')
 processed_text = pipeline.preprocess(text)
 

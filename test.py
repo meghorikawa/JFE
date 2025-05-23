@@ -6,7 +6,8 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼女は服が汚れるのもかまわず、公園で犬と遊んでいる。
+誰にでも好みというものはあります。
+人間には理性というものがある。
 ''')
 processed_text = pipeline.preprocess(text)
 

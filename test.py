@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼は物事を少しすぎる嫌いがある。
+この施設は、会員もしくはその家族に限り使用できる。
 ''')
 processed_text = pipeline.preprocess(text)
 

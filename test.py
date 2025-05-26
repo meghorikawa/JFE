@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-後輩なら先輩に敬語を使ってしかるべきだ。
+彼が犯人だったとは…
 ''')
 processed_text = pipeline.preprocess(text)
 

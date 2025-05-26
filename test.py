@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-この施設は、会員もしくはその家族に限り使用できる。
+今度の試験には、絶対合格してみせるよ。
 ''')
 processed_text = pipeline.preprocess(text)
 

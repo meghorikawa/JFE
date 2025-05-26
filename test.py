@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-悩み出したら切りがないので、途中で吹っ切れることも重要だ。
+彼は物事を少しすぎる嫌いがある。
 ''')
 processed_text = pipeline.preprocess(text)
 

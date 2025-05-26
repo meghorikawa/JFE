@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-教師とはいえ、答えられないこともある。
+津波によって家という家が全て流されてしまった。
 ''')
 processed_text = pipeline.preprocess(text)
 

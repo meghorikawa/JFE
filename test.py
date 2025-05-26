@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-彼が犯人だったとは…
+教師とはいえ、答えられないこともある。
 ''')
 processed_text = pipeline.preprocess(text)
 

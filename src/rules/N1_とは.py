@@ -29,6 +29,7 @@ def match_toha_N1(nlp, doc):
             {},
             {"pos": "ADP", "lemma": "と"},
             {"pos":"ADP", "lemma": "は"},
+            {"pos": "SCONJ", "lemma": {"NOT_IN":["いう","言う"]}}
         ],
         ]
 

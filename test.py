@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-今度の試験には、絶対合格してみせるよ。
+後輩なら先輩に敬語を使ってしかるべきだ。
 ''')
 processed_text = pipeline.preprocess(text)
 

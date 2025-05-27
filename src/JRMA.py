@@ -32,7 +32,7 @@ def sort_morphemes(doc):
             # particles, auxiliaries, and conjunctions
             function_morphemes.append(token)
 
-        return all_morphemes, content_morphemes, function_morphemes
+    return all_morphemes, content_morphemes, function_morphemes
 
 def MATTR (morpheme_list):
     '''

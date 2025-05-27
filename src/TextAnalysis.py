@@ -71,10 +71,10 @@ class Text_analysis:
 
 
         # Morphological Complexity
-        self.MCI_5_surface = 0
-        self.MCI_10_surface = 0
-        self.MCI_5_inflection = 0
-        self.MCI_10_inflection = 0
+        self.mci_5_surface = 0
+        self.mci_10_surface = 0
+        self.mci_5_inflection = 0
+        self.mci_10_inflection = 0
         self.JRMA_all_MTLD = 0
         self.JRMA_content_MTLD = 0
         self.JRMA_function_MTLD = 0
@@ -118,10 +118,10 @@ class Text_analysis:
             "verb_density": self.verb_density,
             "adjective_density": self.adjective_density,
             "adverb_density": self.adverb_density,
-            "MCI_5_Surface": self.MCI_5_surface,
-            "MCI_10_Surface": self.MCI_10_surface,
-            "MCI_5_Inflection": self.MCI_5_inflection,
-            "MCI_10_Inflection": self.MCI_10_inflection,
+            "mci_5_surface": self.mci_5_surface,
+            "mci_10_surface": self.mci_10_surface,
+            "mci_5_inflection": self.mci_5_inflection,
+            "mci_10_inflection": self.mci_10_inflection,
             "JRMA_all_MTLD": self.JRMA_all_MTLD,
             "JRMA_content_MTLD": self.JRMA_content_MTLD,
             "JRMA_function_MTLD": self.JRMA_function_MTLD,

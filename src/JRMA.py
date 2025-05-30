@@ -40,6 +40,8 @@ def MATTR (morpheme_list):
     :param morpheme_list: a processed list of morphemes including tags
     :return: the MATTR score
     '''
+    if len(morpheme_list) == 0:
+        return 0.0  # no morphemes in list
 
     if len(morpheme_list) < MATTR_window:
         return len(set(morpheme_list))/len(morpheme_list)
@@ -67,8 +69,8 @@ def calculate_JRMA_scores (doc):
     function_MTLD_score = MTLD.mtld(function_morphemes, 'lemma')
 
     #calculate MATTR
-    all_MATTR = MATTR(all_MTLD_score)
-    content_MATTR = MATTR(content_MTLD_score)
-    function_MATTR = MATTR(function_MTLD_score)
+    all_MATTR = MATTR([m.lemma_ for m in all_morphemes])
+    content_MATTR = MATTR([m.lemma_ for m in content_morphemes])
+    function_MATTR = MATTR([m.lemma_ for m in function_morphemes])
 
     return all_MTLD_score, content_MTLD_score, function_MTLD_score, all_MATTR, content_MATTR, function_MATTR

@@ -82,7 +82,7 @@ class Text_analysis:
         self.JRMA_content_MATTR = 0
         self.JRMA_function_MATTR = 0
 
-        # Criterial Features
+        # Criterial Features raw counts of grammar forms
         self.pattern_matches = {} # refine this later to have a flat list for each feature
 
     # A to_dict method to easily convert to df later
@@ -140,7 +140,7 @@ class Text_analysis:
         for band, value in self.LFP_band_counts.items():
             data[f"LFP_{band}_count"] = value
 
-        # Add pattern match data
+        # Add grammar form pattern match data
         for match_key, match_val in self.pattern_matches.items():
             data[match_key] = match_val
 
@@ -154,3 +154,24 @@ class Text_analysis:
                 raise AttributeError(f"Cannot modify attribute {key} once object is initialized.")
         # Allow other attributes to be set freely
         super().__setattr__(key, value)
+
+    # add method to set the raw count of grammar form useage
+    def count_grammar_forms(self, doc):
+        '''
+
+        :param doc: the document to return counts for
+        :return:
+        '''
+
+        from rules import rule_modules
+        # list to keep track of match counts
+        matches={}
+
+        for module_name, module in rule_modules.items():
+            for attr in dir(module):
+                if attr.startswith("match_"):
+                    match_function = getattr(module, attr)
+                    if callable(match_function):
+                        match_count = match_function(doc)
+                        matches[attr] = match_count
+        self.pattern_matches = matches

@@ -57,6 +57,9 @@ for participant in participant_list:
         text_obj = TextAnalysis.Text_analysis(participant,text_name, gender, age, loc, score, lang,jlpt)
         # pull stats and set them to text analysis object
 
+        # next get count of grammar forms used
+        text_obj.count_grammar_forms(doc)
+
         text_obj.text_len = WordStats.get_docLen(doc) # to find avg length of text per JLPT lvl
         # Syntactic Measures
         text_obj.WPSavg = WordStats.avgWPS(doc)
@@ -92,13 +95,13 @@ for participant in participant_list:
 
         # morphological Complexity index
         text_obj.mci_5_surface = MCI.MCI(doc, 5, 100, 'surface')
-        print(f"MCI5-Surface = {text_obj.mci_5_surface}")
+        #print(f"MCI5-Surface = {text_obj.mci_5_surface}")
         text_obj.mci_10_surface = MCI.MCI(doc, 10, 100, 'surface')
-        print(f"MCI10-Surface = {text_obj.mci_10_surface}")
+        #print(f"MCI10-Surface = {text_obj.mci_10_surface}")
         text_obj.mci_5_inflection = MCI.MCI(doc, 5, 100, 'inflection')
-        print(f"MCI5-inflection = {text_obj.mci_5_inflection}")
+        #print(f"MCI5-inflection = {text_obj.mci_5_inflection}")
         text_obj.mci_10_inflection = MCI.MCI(doc, 10, 100, 'inflection')
-        print(f"MCI10-inflection = {text_obj.mci_10_inflection}")
+        #print(f"MCI10-inflection = {text_obj.mci_10_inflection}")
 
         (text_obj.JRMA_all_MTLD, text_obj.JRMA_content_MTLD, text_obj.JRMA_function_MTLD, text_obj.JRMA_all_MATTR,
          text_obj.JRMA_content_MATTR, text_obj.JRMA_function_MATTR) = JRMA.calculate_JRMA_scores(doc)

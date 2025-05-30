@@ -55,7 +55,7 @@ def extract_clauses(sent):
     for clause in clauses:
         if is_coordinate_clause(clause):
             coordinate_clauses.append(clause)
-        elif any(tok.pos_ == "SCONJ" for tok in clause):
+        elif is_subordinate_clause(clause):
             subordinate_clauses.append(clause)
 
     return clauses, subordinate_clauses, coordinate_clauses
@@ -68,14 +68,34 @@ def is_coordinate_clause(clause):
         :return: a boolean indicating if clause is coordinate
         '''
         # list of likely cconj
-        coordinating_conjunctions = ["て", "で", "し", "そして", "それに", "それから","または", "し", "と"] # need to account for が...
-        conj_tokens = [tok for tok in clause if tok.text in coordinating_conjunctions and tok.pos_ in ["SCONJ",
-                                                                                                       "CCONJ"]]
+        coordinating_conjunctions = ["そして", "それから", "それに", "さらに", "また",
+        "し", "が", "けれど", "けれども", "でも",
+        "しかし", "しかしながら", "あるいは", "または",
+        "それとも", "で", "て","ながら"] # need to account for が...
         verbs = [tok for tok in clause if tok.pos_ in ["VERB", "AUX"]]
-        if len(conj_tokens) >0 and len(verbs) >= 1:
+        if any(tok.text in coordinating_conjunctions and tok.pos_ in ["SCONJ","CCONJ"] for tok in clause) and  len(
+                verbs) \
+                >= 2:
             return True
         else:
             return False
+def is_subordinate_clause(clause):
+    '''
+
+    :param clause:
+    :return: boolean value is a clause is a subordinate clause
+    '''
+    subordinating_conjunctions=["から", "ので", "ために", "のに", "けれど", "けれども",
+        "たら", "なら", "ば", "と",
+        "間に", "うちに", "ときに", "ながら", "つつ",
+        "か", "ように", "ところが", "ばかりに",
+        "ほど", "まえに", "あとで", "こと", "の","て","で",]
+    return (
+            any(tok.pos_ == "SCONJ" for tok in clause) or
+            any(tok.text in subordinating_conjunctions for tok in clause) or
+            any(tok.dep_ in ["advcl", "ccomp", "xcomp", "acl", "relcl"] for tok in clause)
+    )
+
 # Extract Noun phrases from a clause returns list of noun phrases
 def extract_NPs(text):
     '''

@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-津波によって家という家が全て流されてしまった。
+勉強したよ。このコートは色がきれいだし、好きなデザインだし。買いたいですよ。
 ''')
 processed_text = pipeline.preprocess(text)
 

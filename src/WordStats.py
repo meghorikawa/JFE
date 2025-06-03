@@ -145,7 +145,7 @@ def sc_per_cc(text):
             clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
             cc_list.append(len(cclauses))
             sc_list.append(len(sclauses))
-        return len(sc_list) / len(cc_list)
+        return sum(sc_list) / sum(cc_list)
 
 def get_noun_density(text):
     '''

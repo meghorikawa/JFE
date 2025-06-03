@@ -46,8 +46,8 @@ def calculate_MDD_MHD(doc):
 
                 # MDD - difference between head token and dependent (linear distance)
                 total_mdd+= abs(head_i-dep_i)
-                # MHD - difference in depth of head and dependent are from root
-                total_mhd+= abs(token_depths[head_i]-token_depths[dep_i])
+                # MHD - depth of token from root
+                total_mhd+= token_depths[dep_i]
 
                 num_dependencies += 1
     mdd = total_mdd/num_dependencies if num_dependencies > 0 else 0

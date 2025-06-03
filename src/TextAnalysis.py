@@ -2,6 +2,8 @@
 a class to handle the texts, it should log the different measures,
 and the metadata of the participant
 '''
+import spacy
+
 
 class Text_analysis:
 
@@ -19,6 +21,7 @@ class Text_analysis:
         self.score = score
         # JLPT level
         self.JLPT = JLPT
+        self.nlp = spacy.load('ja_ginza')
 
         # complexity measures and frequency data
 
@@ -172,6 +175,6 @@ class Text_analysis:
                 if attr.startswith("match_"):
                     match_function = getattr(module, attr)
                     if callable(match_function):
-                        match_count = match_function(doc)
+                        match_count = match_function(self.nlp,doc)
                         matches[attr] = match_count
         self.pattern_matches = matches

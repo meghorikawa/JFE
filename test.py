@@ -6,7 +6,7 @@ import src.clauseExtractor
 import spacy
 
 text = ('''
-勉強したよ。このコートは色がきれいだし、好きなデザインだし。買いたいですよ。
+彼女はとても明るいです。
 ''')
 processed_text = pipeline.preprocess(text)
 

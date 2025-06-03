@@ -12,6 +12,7 @@ import pandas as pd
 import TextAnalysis
 import WordStats
 import JRMA
+import JLPTWordList
 
 #load spacy model
 nlp = spacy.load('ja_ginza')
@@ -88,6 +89,16 @@ for participant in participant_list:
         text_obj.LFP_total_tokens = total_tokens
         text_obj.LFP_oov_list = oov_list
 
+        #JLPT Vocab Useage
+        jlpt_counts = JLPTWordList.JLPT_tango_counter(doc)
+
+        text_obj.JLPT_Tango_N1 = jlpt_counts.get('N1')
+        text_obj.JLPT_Tango_N2 = jlpt_counts.get('N2')
+        text_obj.JLPT_Tango_N3 = jlpt_counts.get('N3')
+        text_obj.JLPT_Tango_N4 = jlpt_counts.get('N4')
+        text_obj.JLPT_Tango_N5 = jlpt_counts.get('N5')
+
+
         # MTLD
         text_obj.MTLD = MTLD.mtld(doc, 'surface')
         #CTTR
@@ -113,4 +124,4 @@ for participant in participant_list:
 
 
 df = pd.DataFrame(all_text_data)
-df.to_csv('test.csv', index=False)
+df.to_csv('learner_data.csv', index=False)

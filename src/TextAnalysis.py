@@ -88,6 +88,12 @@ class Text_analysis:
         # Criterial Features raw counts of grammar forms
         self.pattern_matches = {} # refine this later to have a flat list for each feature
 
+        #JLPT Vocab Count
+        self.JLPT_Tango_N1 =0
+        self.JLPT_Tango_N2 =0
+        self.JLPT_Tango_N3 =0
+        self.JLPT_Tango_N4 =0
+        self.JLPT_Tango_N5 =0
     # A to_dict method to easily convert to df later
     def to_dict(self):
         # Start with metadata and basic stats
@@ -133,6 +139,13 @@ class Text_analysis:
             "JRMA_function_MATTR": self.JRMA_function_MATTR,
             "LFP_total_tokens": self.LFP_total_tokens,
             #"LFP_OOV_List": ", ".join(self.LFP_oov_list)  # Convert list to string
+
+            "JLPT Vocab N1": self.JLPT_Tango_N1,
+            "JLPT Vocab N2": self.JLPT_Tango_N2,
+            "JLPT Vocab N3": self.JLPT_Tango_N3,
+            "JLPT Vocab N4": self.JLPT_Tango_N4,
+            "JLPT Vocab N5": self.JLPT_Tango_N5,
+
     }
 
         # Add LFP band percentages

@@ -3,6 +3,7 @@ import math
 from collections import Counter
 import spacy
 import clauseExtractor
+import PhraseExtractor
 
 # global list of coordinating conjunctions list
 ccList = []
@@ -132,20 +133,19 @@ def cc_per_clause(text):
     return sum(cc_list) / sum(clause_count)
 
 def sc_per_cc(text):
-    def cc_per_clause(text):
-        '''
-        function to return the ratio of subordinate clauses over coordinate clauses in a text
-        :param text: the text to analyze
-        :return: the ratio of subordinate clauses to coordinate clauses
-        '''
-        sentences = list(text.sents)
-        cc_list = []
-        sc_list = []
-        for sent in sentences:
-            clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
-            cc_list.append(len(cclauses))
-            sc_list.append(len(sclauses))
-        return sum(sc_list) / sum(cc_list)
+    '''
+    function to return the ratio of subordinate clauses over coordinate clauses in a text
+    :param text: the text to analyze
+    :return: the ratio of subordinate clauses to coordinate clauses
+    '''
+    sentences = list(text.sents)
+    cc_list = []
+    sc_list = []
+    for sent in sentences:
+        clauses, sclauses, cclauses = clauseExtractor.extract_clauses(sent)
+        cc_list.append(len(cclauses))
+        sc_list.append(len(sclauses))
+    return sum(sc_list) / sum(cc_list)
 
 def get_noun_density(text):
     '''
@@ -212,7 +212,7 @@ def avg_NP_length(text):
     :param text: the text to analyze
     :return: the average length of NP
     '''
-    NP_list = clauseExtractor.extract_NPs(text)
+    NP_list = PhraseExtractor.extract_noun_phrases(text)
     if not NP_list:
         return 0
     return sum(len(NP)for NP in NP_list) / len(NP_list)
@@ -222,7 +222,7 @@ def avg_VP_length(text):
     :param text: the text to analyze
     :return: the average length of VP
     '''
-    VP_list = clauseExtractor.extract_VPs(text)
+    VP_list = PhraseExtractor.extract_verb_phrases(text)
     if not VP_list:
         return 0
     return sum(len(VP) for VP in VP_list) / len(VP_list)

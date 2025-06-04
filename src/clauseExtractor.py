@@ -126,16 +126,25 @@ def extract_VPs(text):
     clauses, subordinate_clauses, coordinate_clauses = extract_clauses(text)
     VP_list = []
     for clause in clauses:
-        for token in clause:
-            if token.pos_ in ["VERB", "AUX"]:
-                vp = [token]
-                for child in token.children:
-                    if child.dep_ in ["aux", "advmod", "mark", "compound"]:
-                        vp.append(child)
-                vp = sorted(vp, key=lambda x: x.i)
-                VP_list.append(vp)
+        VP_list.extend(extract_clause_VPs(clause))
     return VP_list
 
+def extract_clause_VPs(clause):
+    '''
+    function to extract VPs from a clause
+    '''
+    VP_list = []
+    for token in clause:
+        if token.pos_ in ["VERB", "AUX"]:
+            print("VERB:", token.text)
+            print("CHILDREN:", [child.text for child in token.children])
+            vp = [token]
+            for child in token.children:
+                if child.dep_ in ["aux", "auxpass", "advmod", "mark", "cop", "case", "conj", "compound"]:
+                    vp.append(child)
+            vp = sorted(vp, key=lambda x: x.i)
+            VP_list.append(vp)
+    return VP_list
 
 def clause_count(sent):
     '''

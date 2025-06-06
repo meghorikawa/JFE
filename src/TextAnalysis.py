@@ -192,4 +192,6 @@ class Text_analysis:
                         if isinstance(result, tuple) and len(result) == 2: #check form of result
                             form_dict,count = result
                             matches[attr] = count
+                        else:
+                            matches[attr] = 0
         self.pattern_matches = matches

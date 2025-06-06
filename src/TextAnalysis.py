@@ -175,7 +175,7 @@ class Text_analysis:
     def count_grammar_forms(self, doc):
         '''
 
-        :param doc: the document to return counts for
+        :param doc: the document to return counts for JLPT Grammar Forms
         :return:
         '''
 
@@ -188,6 +188,8 @@ class Text_analysis:
                 if attr.startswith("match_"):
                     match_function = getattr(module, attr)
                     if callable(match_function):
-                        match_count = match_function(self.nlp,doc)
-                        matches[attr] = match_count
+                        result = match_function(self.nlp,doc)
+                        if isinstance(result, tuple) and len(result) == 2: #check form of result
+                            form_dict,count = result
+                            matches[attr] = count
         self.pattern_matches = matches

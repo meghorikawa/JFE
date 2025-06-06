@@ -55,7 +55,7 @@ def mtld (tokenized_text, mode):
         raise ValueError("Input should be tokenized text")
     if len(tokenized_text)< 50:
         #raise ValueError("Input should be at least 50 tokens")
-        return "tooshort"
+        return None
     return mtld_calc(tokenized_text, ttr_threshold, mode)
 
 def remove_punctuation(text):

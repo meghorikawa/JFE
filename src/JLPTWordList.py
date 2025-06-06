@@ -33,5 +33,7 @@ def JLPT_tango_counter(text):
         if not match.empty:
             jlpt_level = match.iloc[0]['JLPT'] # get level
             counter[jlpt_level] += 1
-
-    return counter
+    if counter == 0:
+        return 0
+    else:
+        return counter

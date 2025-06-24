@@ -15,7 +15,7 @@ import JRMA
 import JLPTWordList
 
 #load spacy model
-nlp = spacy.load('ja_ginza')
+nlp = spacy.load('ja_ginza-electra')
 
 # main method I need to create separate line items for each participant and each writing.
 path= "/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/Corpus"

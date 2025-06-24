@@ -3,10 +3,12 @@
 from src import pipeline, clauseExtractor, PhraseExtractor
 import json
 import spacy
+from ginza import clauses, clause_head, clause_head_i
+
 
 
 text = ('''
-昨日、先生に宿題を渡しました。
+彼は学校へ行き勉強をし友達と話した後で家に帰った。
 ''')
 processed_text = pipeline.preprocess(text)
 
@@ -19,8 +21,9 @@ with open("processed_text.json", "w", encoding="utf-8") as f:
 
 print("Processing complete! JSON saved.")
 sentences = doc.sents
+
 print(f'Verb phrases {PhraseExtractor.extract_verb_phrases(doc)}')
 print(f'Noun phrases {PhraseExtractor.extract_noun_phrases(doc)}')
 for sentence in sentences:
-    clauses, subordinate, coordinate = clauseExtractor.extract_clauses(sentence)
-    print(f' Clauses: {clauses}, Subordinate: {subordinate}, Coordinate: {coordinate}')
+    clause_list, subordinate, coordinate = clauseExtractor.extract_clauses(sentence)
+    print(f' Clauses: {clause_list}, Subordinate: {subordinate}, Coordinate: {coordinate}')

@@ -1,6 +1,7 @@
 ## method to handle the pipeline for text pre-processing
 
 import spacy
+from ginza import clauses, clause_head, clause_head_i
 
 
 

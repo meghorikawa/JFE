@@ -8,8 +8,8 @@ from ginza import clauses, clause_head, clause_head_i
 
 
 text = ('''
-午前中が一番調子がいい。
-一番前に座っている人は誰ですか？
+子どものころから、ずっと日本に行きたかった。
+つかれたから、もう勉強したくない。
 ''')
 processed_text = pipeline.preprocess(text)
 

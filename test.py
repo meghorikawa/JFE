@@ -8,7 +8,7 @@ from ginza import clauses, clause_head, clause_head_i
 
 
 text = ('''
-毎日食べたいくらいだ。。
+寝る前に、スマホを使わない方がいい。
 ''')
 processed_text = pipeline.preprocess(text)
 

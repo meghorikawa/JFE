@@ -13,9 +13,10 @@ import TextAnalysis
 import WordStats
 import JRMA
 import JLPTWordList
+import mojimoji
 
 #load spacy model
-nlp = spacy.load('ja_ginza-electra')
+nlp = spacy.load('ja_ginza')
 
 # main method I need to create separate line items for each participant and each writing.
 path= "/Users/megu/Documents/Tübingen Universität/Thesis/FeatureExtractor/Corpus"
@@ -52,6 +53,9 @@ for participant in participant_list:
         # open and load text
         with open(f"{path}/{participant}/{text}","r",encoding="utf-8") as f:
             raw_text = f.read()
+        # convert any half-width characters to full width for easier processing
+        raw_text=mojimoji.han_to_zen(raw_text)
+
         #process it
         doc = nlp(raw_text)
         # make new text_analysis object

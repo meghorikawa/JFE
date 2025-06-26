@@ -28,10 +28,12 @@ def match_tsumoride_N3(nlp, doc):
             {"pos": "VERB"},
             {"pos": "AUX", "OP": "?"},
             {"pos": "NOUN", "lemma": "つもり"},
+            {"pos": "ADP", "lemma":"で"}
           ],[ # noun pattern
             {"pos": {"IN": ["PRON","NOUN"]}},
             {"pos": "ADP", "lemma": "の", "OP": "?"},
-            {"pos": "NOUN", "lemma": "つもり"}
+            {"pos": "NOUN", "lemma": "つもり"},
+            {"pos": "ADP", "lemma": "で"}
 
         ]
     ]

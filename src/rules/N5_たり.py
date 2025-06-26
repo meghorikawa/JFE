@@ -9,31 +9,29 @@ Level: N5
 
 intend to; plan to do ~
 
-Verb　stem + すぎる
-            すぎます
-            すぎた
-            すぎました
-            すぎて
+Verbた + り + Verbた + り
+Noun/なadj＋　だったり +Noun/なadj＋　だったり
+いadj+かったり + いadj+かったり
 
-このシャツは大きすぎる。
-今年の夏は暑すぎた。
-この問題は簡単すぎます。
+休みの日は水曜日だったり、日曜日だったりです。
+日曜日は買い物したり、映画を見たりした。
+私の店は忙しかったり暇だったりです。
 
 '''
 
 
-def match_sugiru_N5(nlp, doc):
+def match_tari_N5(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
         [  # general pattern
             {},
-            {"pos": "VERB", "lemma": {"IN": ["すぎる", "過ぎる"]}},
+            {"pos": {"IN":["PART","ADP"]}, "lemma": "たり"},
             {},
           ],
     ]
 
-    matcher.add("sugiru", patterns)
+    matcher.add("tari", patterns)
     matches = matcher(doc)
 
     # Count occurrences

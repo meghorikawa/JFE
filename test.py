@@ -8,9 +8,7 @@ from ginza import clauses, clause_head, clause_head_i
 
 
 text = ('''
-このシャツは大きすぎる。
-今年の夏は暑すぎた。
-この問題は簡単すぎます。
+私の店は忙しかったり暇だったりです。
 ''')
 processed_text = pipeline.preprocess(text)
 

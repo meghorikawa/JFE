@@ -7,7 +7,7 @@ from collections import Counter
 '''
 Level: N5
 
-too much
+intend to; plan to do ~
 
 Verb　stem + すぎる
             すぎます

@@ -20,7 +20,9 @@ def apply_matching(text):
 
 # Example usage
 text = ('''
-今夜カラオケへ行くつもりだ。
+このシャツは大きすぎる。
+今年の夏は暑すぎた。
+この問題は簡単すぎます。
 
 ''')
 

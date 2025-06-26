@@ -17,19 +17,18 @@ Verb (た form)	+ らどう
 '''
 
 
-def match_taradou_N4(nlp, doc):
+def match_tara_N4(nlp, doc):
     matcher = Matcher(nlp.vocab)
 
     patterns = [
         [  # general pattern
-            {"pos": "VERB"},
-            {"pos": "AUX", "lemma": "する", "OP": "?"},
+            {},
             {"pos": "AUX", "orth": "たら"},
-            {"pos": "ADV", "lemma": "どう"},
+            {"lemma": {"NOT_IN": ["どう"]}},
         ]
     ]
 
-    matcher.add("taradou", patterns)
+    matcher.add("tara", patterns)
     matches = matcher(doc)
 
     # Count occurrences

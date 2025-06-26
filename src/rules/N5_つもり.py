@@ -25,7 +25,7 @@ def match_tsumori_N5(nlp, doc):
     patterns = [
         [  # general pattern
             {"pos": "NOUN", "lemma": "つもり"},
-            {"pos": "ADP", "lemma": {"NOT_IN":["で"]}}
+            {"lemma": {"NOT_IN":["で"]}}
           ],
     ]
 

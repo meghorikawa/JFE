@@ -8,8 +8,8 @@ from ginza import clauses, clause_head, clause_head_i
 
 
 text = ('''
-子どものころから、ずっと日本に行きたかった。
-つかれたから、もう勉強したくない。
+日本語をもっと勉強しなくてはいけない。
+花の水やりをしなくてはいけません。
 ''')
 processed_text = pipeline.preprocess(text)
 

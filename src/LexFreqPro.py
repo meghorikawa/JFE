@@ -84,8 +84,21 @@ def LFP(text):
             band_counts["OOV"] += 1
             i += 1
 
+    for band_label in bands.keys():
+        if band_label not in band_counts:
+            band_counts[band_label] =0
 
-    # 4. Analyze the lists for score
+    if "OOV" not in band_counts:
+        band_counts['OOV']=0
+
+    # Check and make sure all bands are present
+    for band_label in bands.keys():
+        if band_label not in band_counts:
+            band_counts[band_label]=0
+    if "OOV" not in band_counts:
+        band_counts["OOV"]=0
+
+    # 5. Analyze the lists for score
     total_tokens = sum(band_counts.values())
     band_percentages = {band: round(count / total_tokens * 100, 2) for band, count in band_counts.items()}
     return band_percentages, band_counts, total_tokens, oov_list

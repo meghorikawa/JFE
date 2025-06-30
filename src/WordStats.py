@@ -176,10 +176,10 @@ def get_verb_density(text):
     filtered_tokens = [token for token in text if not token.is_punct]
 
     # proportion of Nouns vs. tokens
-    total_nouns = sum(1 for token in filtered_tokens if token.pos_ in {"VERB", "AUX"})
+    total_verbs = sum(1 for token in filtered_tokens if token.pos_ in {"VERB", "AUX"})
     total_tokens = len(text)
 
-    return total_nouns / total_tokens
+    return total_verbs / total_tokens
 
 def get_adj_density(text):
     '''

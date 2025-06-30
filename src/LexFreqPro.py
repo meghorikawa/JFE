@@ -100,7 +100,16 @@ def LFP(text):
 
     # 5. Analyze the lists for score
     total_tokens = sum(band_counts.values())
-    band_percentages = {band: round(count / total_tokens * 100, 2) for band, count in band_counts.items()}
+
+    # avoid division by 0
+    if total_tokens == 0:
+        band_percentages = {band: 0.0 for band in band_counts}
+    else:
+        band_percentages = {
+            band: round(count / total_tokens * 100, 2)
+            for band, count in band_counts.items()
+        }
+
     return band_percentages, band_counts, total_tokens, oov_list
 
 '''

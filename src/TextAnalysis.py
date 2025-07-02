@@ -58,7 +58,8 @@ class Text_analysis:
 
         # Lexical Measures
         self.CTTR = 0
-        self.MTLD = 0
+        self.MTLD_surface = 0
+        self.MTLD_lemma = 0
 
         # Lexical Density
         self.noun_density = 0
@@ -122,7 +123,8 @@ class Text_analysis:
             "MDD": self.MDD,
             "MHD": self.MHD,
             "CTTR": self.CTTR,
-            "MTLD": self.MTLD,
+            "MTLD_surface": self.MTLD_surface,
+            "MTLD_lemma": self.MTLD_lemma,
             "noun_density": self.noun_density,
             "verb_density": self.verb_density,
             "adjective_density": self.adjective_density,

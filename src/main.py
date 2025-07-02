@@ -104,7 +104,8 @@ for participant in participant_list:
 
 
         # MTLD
-        text_obj.MTLD = MTLD.mtld(doc, 'surface')
+        text_obj.MTLD_surface = MTLD.mtld(doc, 'surface')
+        text_obj.MTLD_lemma = MTLD.mtld(doc, 'lemma')
         #CTTR
         text_obj.CTTR = WordStats.cttr(doc)
 

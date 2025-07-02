@@ -54,6 +54,32 @@ def MATTR (morpheme_list):
 
     return sum(ttrs)/len(ttrs)
 
+# implement a measure to look at elaboration of morphology by looking at
+# the auxiliaries attached to verbs
+def calculate_auxiliary_chain_density(doc):
+    '''
+    :param doc: the processed document to analyze
+    :param doc:
+    :return: A measure of density of auxilary chains
+    '''
+    total_verbs = 0
+    total_auxiliaries = 0
+    for token in doc:
+        if token.pos_ =="VERB" and token.head == token:
+            total_verbs += 1
+
+            # find auxilaries
+            for child in token.children:
+                if child.pos_=="AUX" or "非自立" in child.tag_:
+                    total_auxiliaries += 1
+                elif child.orth_ in ["て","で"] and child.tag_.startswith("助詞"):
+                    total_auxiliaries +=1
+
+    if total_verbs ==0:
+        return 0.0
+
+    return total_auxiliaries / total_verbs
+
 def calculate_JRMA_scores (doc):
     '''
 
@@ -73,4 +99,6 @@ def calculate_JRMA_scores (doc):
     content_MATTR = MATTR([m.lemma_ for m in content_morphemes])
     function_MATTR = MATTR([m.lemma_ for m in function_morphemes])
 
-    return all_MTLD_score, content_MTLD_score, function_MTLD_score, all_MATTR, content_MATTR, function_MATTR
+    # calculate elaboration via auxilary chains
+    aux_chains_density = calculate_auxiliary_chain_density(doc)
+    return all_MTLD_score, content_MTLD_score, function_MTLD_score, all_MATTR, content_MATTR, function_MATTR, aux_chains_density

@@ -101,7 +101,11 @@ for participant in participant_list:
         text_obj.JLPT_Tango_N4 = jlpt_counts.get('N4')
         text_obj.JLPT_Tango_N5 = jlpt_counts.get('N5')
 
-        text_obj.JLPT_Tango_N5
+        text_obj.JLPT_Tango_N5_percent = jlpt_percents.get('N5')
+        text_obj.JLPT_Tango_N4_percent = jlpt_percents.get('N4')
+        text_obj.JLPT_Tango_N3_percent = jlpt_percents.get('N3')
+        text_obj.JLPT_Tango_N2_percent = jlpt_percents.get('N2')
+        text_obj.JLPT_Tango_N1_percent = jlpt_percents.get('N1')
 
         # MTLD
         text_obj.MTLD_surface = MTLD.mtld(doc, 'surface')

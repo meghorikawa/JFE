@@ -27,6 +27,8 @@ def JLPT_tango_counter(text):
     #go through list of tokens and look for match
     counter = Counter()
 
+    JLPT_levels = ['N5', 'N4', 'N3', 'N2', 'N1']
+
     for lemma in filtered_tokens:
         # match by either "Word" or "Reading"
         match = df[(df['Word'] == lemma) | (df['Reading'] == lemma)]
@@ -38,7 +40,8 @@ def JLPT_tango_counter(text):
         percentages = {}
     else:
         percentages ={
-            level: round(count/len(filtered_tokens)*100,2) for level, count in counter.items()
-
+            level: round(count.get(level,0)/len(filtered_tokens)*100,2)
+            if len(filtered_tokens) > 0 else 0.0
+            for level in JLPT_levels
         }
-        return counter, percentages
+    return counter, percentages

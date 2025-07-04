@@ -95,6 +95,13 @@ class Text_analysis:
         self.JLPT_Tango_N3 =0
         self.JLPT_Tango_N4 =0
         self.JLPT_Tango_N5 =0
+
+        #JLPT Vocab Percent
+        self.JLPT_Tango_N5_percent=0
+        self.JLPT_Tango_N4_percent=0
+        self.JLPT_Tango_N3_percent=0
+        self.JLPT_Tango_N2_percent=0
+        self.JLPT_Tango_N1_percent=0
     # A to_dict method to easily convert to df later
     def to_dict(self):
         # Start with metadata and basic stats
@@ -148,7 +155,11 @@ class Text_analysis:
             "JLPT Vocab N3": self.JLPT_Tango_N3,
             "JLPT Vocab N4": self.JLPT_Tango_N4,
             "JLPT Vocab N5": self.JLPT_Tango_N5,
-
+            "JLPT Vocab percent N1": self.JLPT_Tango_N1_percent,
+            "JLPT Vocab percent N2": self.JLPT_Tango_N2_percent,
+            "JLPT Vocab percent N3": self.JLPT_Tango_N3_percent,
+            "JLPT Vocab percent N4": self.JLPT_Tango_N4_percent,
+            "JLPT Vocab percent N5": self.JLPT_Tango_N5_percent,
     }
 
         # Add LFP band percentages

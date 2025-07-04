@@ -99,10 +99,11 @@ def LFP(text):
         band_counts["OOV"]=0
 
     # 5. Analyze the lists for score
-    total_tokens = sum(band_counts.values())
+    total_band_tokens = sum(band_counts.values())
+    total_tokens = len(lemmas) # text length for %
 
     # avoid division by 0
-    if total_tokens == 0:
+    if total_band_tokens == 0:
         band_percentages = {band: 0.0 for band in band_counts}
     else:
         band_percentages = {

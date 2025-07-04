@@ -94,14 +94,14 @@ for participant in participant_list:
         text_obj.LFP_oov_list = oov_list
 
         #JLPT Vocab Useage
-        jlpt_counts = JLPTWordList.JLPT_tango_counter(doc)
-
+        jlpt_counts, jlpt_percents = JLPTWordList.JLPT_tango_counter(doc)
         text_obj.JLPT_Tango_N1 = jlpt_counts.get('N1')
         text_obj.JLPT_Tango_N2 = jlpt_counts.get('N2')
         text_obj.JLPT_Tango_N3 = jlpt_counts.get('N3')
         text_obj.JLPT_Tango_N4 = jlpt_counts.get('N4')
         text_obj.JLPT_Tango_N5 = jlpt_counts.get('N5')
 
+        text_obj.JLPT_Tango_N5
 
         # MTLD
         text_obj.MTLD_surface = MTLD.mtld(doc, 'surface')
@@ -120,7 +120,7 @@ for participant in participant_list:
         #print(f"MCI10-inflection = {text_obj.mci_10_inflection}")
 
         (text_obj.JRMA_all_MTLD, text_obj.JRMA_content_MTLD, text_obj.JRMA_function_MTLD, text_obj.JRMA_all_MATTR,
-         text_obj.JRMA_content_MATTR, text_obj.JRMA_function_MATTR) = JRMA.calculate_JRMA_scores(doc)
+         text_obj.JRMA_content_MATTR, text_obj.JRMA_function_MATTR, text_obj.JRMA_aux_chains) = JRMA.calculate_JRMA_scores(doc)
 
 
         # add the text analysis object to text lists

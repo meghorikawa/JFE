@@ -40,7 +40,7 @@ def JLPT_tango_counter(text):
         percentages = {}
     else:
         percentages ={
-            level: round(count.get(level,0)/len(filtered_tokens)*100,2)
+            level: round(counter.get(level,0)/len(filtered_tokens)*100,2)
             if len(filtered_tokens) > 0 else 0.0
             for level in JLPT_levels
         }

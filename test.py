@@ -8,7 +8,7 @@ from ginza import clauses, clause_head, clause_head_i
 
 
 text = ('''
-是非、食べてみてください。
+明日、何なされる？
 ''')
 processed_text = pipeline.preprocess(text)
 

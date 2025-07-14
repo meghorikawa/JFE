@@ -150,16 +150,16 @@ class Text_analysis:
             "LFP_total_tokens": self.LFP_total_tokens,
             #"LFP_OOV_List": ", ".join(self.LFP_oov_list)  # Convert list to string
 
-            "JLPT Vocab N1": self.JLPT_Tango_N1,
-            "JLPT Vocab N2": self.JLPT_Tango_N2,
-            "JLPT Vocab N3": self.JLPT_Tango_N3,
-            "JLPT Vocab N4": self.JLPT_Tango_N4,
-            "JLPT Vocab N5": self.JLPT_Tango_N5,
-            "JLPT Vocab percent N1": self.JLPT_Tango_N1_percent,
-            "JLPT Vocab percent N2": self.JLPT_Tango_N2_percent,
-            "JLPT Vocab percent N3": self.JLPT_Tango_N3_percent,
-            "JLPT Vocab percent N4": self.JLPT_Tango_N4_percent,
-            "JLPT Vocab percent N5": self.JLPT_Tango_N5_percent,
+            "JLPT_Vocab_N1": self.JLPT_Tango_N1,
+            "JLPT_Vocab_N2": self.JLPT_Tango_N2,
+            "JLPT_Vocab_N3": self.JLPT_Tango_N3,
+            "JLPT_Vocab_N4": self.JLPT_Tango_N4,
+            "JLPT_Vocab_N5": self.JLPT_Tango_N5,
+            "JLPT_Vocab_percent_N1": self.JLPT_Tango_N1_percent,
+            "JLPT_Vocab_percent_N2": self.JLPT_Tango_N2_percent,
+            "JLPT_Vocab_percent_N3": self.JLPT_Tango_N3_percent,
+            "JLPT_Vocab_percent_N4": self.JLPT_Tango_N4_percent,
+            "JLPT_Vocab_percent_N5": self.JLPT_Tango_N5_percent,
     }
 
         # Add LFP band percentages

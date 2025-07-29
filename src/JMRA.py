@@ -1,4 +1,4 @@
-# this is a Japanese adaption of the Korean Morpheme-based Richness Analysis (KMRA)
+# this is a Japanese adaption of the Korean Morphological Richness Analyzer (KMRA)
 # system Hwang2024
 
 import MTLD

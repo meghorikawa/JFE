@@ -11,7 +11,7 @@ import pipeline
 import pandas as pd
 import TextAnalysis
 import WordStats
-import JRMA
+import JMRA
 import JLPTWordList
 import mojimoji
 

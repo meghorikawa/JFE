@@ -17,18 +17,20 @@ The following complexity measures were also coded for extraction:
 * Average Clauses per Sentence
 * Average Coordinate Clauses per Sentence
 * Average Subordinate Clauses per Sentence
-* Mean Depedency Distance
+* Mean Dependency Distance
 * Mean Hierarchical Distance
 
 ### Lexical Complexity
 * Corrected Type-Token Ratio
 * MTLD
-* Lexical Frequency Profile
+* Lexical Frequency Profile (BCCWJ Corpus)
+* Lexical Frequency Profile (JLPT Word list)
 
 
 ### Morphological Complexity
-
-
+* Japanese Morphological Richness (Based on KMRA, Hwang 2024)
+* Morphological Complexity Index 
+* Verb Auxiliary chain density
 
 # Abstract
 This study investigates the use of linguistic complexity measures and criterial features to model proficiency levels in Japanese as a second language (L2). Using learner writings from the I-JAS corpus, this research examines whether linguistic complexity, and criterial features can reliably reflect L2 developmental progress and support interpretable proficiency classification. An Explainable Boosting Machine (EBM) was used to model the relationship between these features and proficiency labels, offering transparency in identifying which linguistic measures constribute most to level prediction.

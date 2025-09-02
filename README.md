@@ -2,10 +2,22 @@
 This project is for my Master Thesis which focuses on the extraction of linguistic complexity measures, and 
 criterial features in　L2 Japanese learner texts to model language development. 
 
+# Installation
+1. Clone the repository and install dependencies:
+```bash
+pip install -r requirements.txt
+```
+2. Create a directory called *Corpus*, containing a separate subdirectory for each participant with their texts in .txt format.
+3. Add word lists for the Lexical Frequency Profile measures in a directory called *WordLists*. 
+4. Once these directories have been added, the program can be run from within an IDE or from the terminal: 
+```bash
+python main.py
+```
+
 ## Criterial Features
 A total of 154 grammar forms across all 5 levels of the Japanese Language Proficiency Exam JLPT were coded for 
 rule-based extraction 
-using Spacy's matching package, as criterial features. 
+using Spacy's matching package, as criterial features. They are accessible in the "rules" directory.
 
 
 ## Linguistic Complexity Measures

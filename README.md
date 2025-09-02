@@ -50,7 +50,3 @@ This study investigates the use of linguistic complexity measures and criterial 
 The model achieved .38 weighted F1 score in five-class classification, well above the baseline.  Feature importance analysis revealed that mainly linguistic complexity measures such as, coordinate clauses per sentence, Morphological Complexity Index, and Lexical Frequency profiles were key predictors, although one criterial feature, passive form, was also ranked in the top 15 features. These findings align with established theories that linguistic complexity increases with proficiency, though unexpected trends-such as early subordination and continued growth in coordination-suggest the influence of instruction sequences and parser limitations.
 
 Beyond modeling, the study also highlights developmental trajectories in complexity measures and discusses implications for language assessment, curriculum design, and learner feedback. Limitations include the use of uncorrected learner data, reliance on surface-form features, and imbalanced class sizes, especially for N1 learners. Future work can explore error-based features, discourse-level complexity, and longitudinal data collection. This research contributes to both second language acquisition theory and the development of computational tools for assessing L2 Japanese proficiency.
-
-
-# アブストラクト
-お後ほど
